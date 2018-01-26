@@ -67,7 +67,7 @@
 }
 
 - (CGSize)collectionView:(YNSelfSizingCollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return [collectionView sizeForCellWithIdentifier:[YNDynamicHeightTextCollectionViewCell description] indexPath:indexPath fixedWidth:collectionView.bounds.size.width configuration:^(YNDynamicHeightTextCollectionViewCell *cell) {
+    return [collectionView sizeForCellWithIdentifier:[YNDynamicHeightTextCollectionViewCell description] indexPath:indexPath configuration:^(YNDynamicHeightTextCollectionViewCell *cell) {
         cell.label.text = [self.data objectAtIndex:indexPath.row];
     }];
 }
