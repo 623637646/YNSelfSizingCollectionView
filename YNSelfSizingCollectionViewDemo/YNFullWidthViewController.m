@@ -11,13 +11,25 @@
 #import "YNDynamicHeightTextCollectionViewCell.h"
 
 @interface YNFullWidthViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-
+@property (nonatomic, strong) NSArray<NSString*> *data;
 @end
 
 @implementation YNFullWidthViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSMutableArray<NSString*> *data = [NSMutableArray<NSString*> array];
+    for (int i = 0; i < 100; i++) {
+        [data addObject:({
+            NSMutableString *string = [NSMutableString string];
+            for (int i=0; i<arc4random() % 300; i++) {
+                [string appendFormat:@"%@",@(i)];
+            }
+            string;
+        })];
+    }
+    self.data = data;
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 0;
@@ -39,18 +51,12 @@
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 100;
+    return self.data.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     YNDynamicHeightTextCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDynamicHeightTextCollectionViewCell description] forIndexPath:indexPath];
-    cell.label.text = ({
-        NSMutableString *string = [NSMutableString string];
-        for (int i=0; i<arc4random() % 300; i++) {
-            [string appendFormat:@"%@",@(i)];
-        }
-        string;
-    });
+    cell.label.text = [self.data objectAtIndex:indexPath.row];
     cell.backgroundColor = ({
         CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
         CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
