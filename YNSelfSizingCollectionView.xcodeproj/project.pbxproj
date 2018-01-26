@@ -8,16 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		A0747295201AD7C2001538FA /* YNSelfSizingCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A0747293201AD7C2001538FA /* YNSelfSizingCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A07472A3201AD828001538FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472A2201AD828001538FA /* AppDelegate.m */; };
+		A07472A6201AD828001538FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472A5201AD828001538FA /* ViewController.m */; };
+		A07472A9201AD828001538FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07472A7201AD828001538FA /* Main.storyboard */; };
+		A07472AB201AD828001538FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07472AA201AD828001538FA /* Assets.xcassets */; };
+		A07472AE201AD828001538FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07472AC201AD828001538FA /* LaunchScreen.storyboard */; };
+		A07472B1201AD828001538FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472B0201AD828001538FA /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A0747290201AD7C2001538FA /* YNSelfSizingCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YNSelfSizingCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0747293201AD7C2001538FA /* YNSelfSizingCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionView.h; sourceTree = "<group>"; };
 		A0747294201AD7C2001538FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A074729F201AD828001538FA /* YNSelfSizingCollectionViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNSelfSizingCollectionViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A07472A1201AD828001538FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A07472A2201AD828001538FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A07472A4201AD828001538FA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A07472A5201AD828001538FA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A07472A8201AD828001538FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A07472AA201AD828001538FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A07472AD201AD828001538FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A07472AF201AD828001538FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A07472B0201AD828001538FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A074728C201AD7C2001538FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A074729C201AD828001538FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -31,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				A0747292201AD7C2001538FA /* YNSelfSizingCollectionView */,
+				A07472A0201AD828001538FA /* YNSelfSizingCollectionViewDemo */,
 				A0747291201AD7C2001538FA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				A0747290201AD7C2001538FA /* YNSelfSizingCollectionView.framework */,
+				A074729F201AD828001538FA /* YNSelfSizingCollectionViewDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -50,6 +75,22 @@
 				A0747294201AD7C2001538FA /* Info.plist */,
 			);
 			path = YNSelfSizingCollectionView;
+			sourceTree = "<group>";
+		};
+		A07472A0201AD828001538FA /* YNSelfSizingCollectionViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A07472A1201AD828001538FA /* AppDelegate.h */,
+				A07472A2201AD828001538FA /* AppDelegate.m */,
+				A07472A4201AD828001538FA /* ViewController.h */,
+				A07472A5201AD828001538FA /* ViewController.m */,
+				A07472A7201AD828001538FA /* Main.storyboard */,
+				A07472AA201AD828001538FA /* Assets.xcassets */,
+				A07472AC201AD828001538FA /* LaunchScreen.storyboard */,
+				A07472AF201AD828001538FA /* Info.plist */,
+				A07472B0201AD828001538FA /* main.m */,
+			);
+			path = YNSelfSizingCollectionViewDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,6 +125,23 @@
 			productReference = A0747290201AD7C2001538FA /* YNSelfSizingCollectionView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		A074729E201AD828001538FA /* YNSelfSizingCollectionViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A07472B2201AD828001538FA /* Build configuration list for PBXNativeTarget "YNSelfSizingCollectionViewDemo" */;
+			buildPhases = (
+				A074729B201AD828001538FA /* Sources */,
+				A074729C201AD828001538FA /* Frameworks */,
+				A074729D201AD828001538FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YNSelfSizingCollectionViewDemo;
+			productName = YNSelfSizingCollectionViewDemo;
+			productReference = A074729F201AD828001538FA /* YNSelfSizingCollectionViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -97,6 +155,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					A074729E201AD828001538FA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = A074728A201AD7C2001538FA /* Build configuration list for PBXProject "YNSelfSizingCollectionView" */;
@@ -105,6 +167,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A0747286201AD7C2001538FA;
 			productRefGroup = A0747291201AD7C2001538FA /* Products */;
@@ -112,6 +175,7 @@
 			projectRoot = "";
 			targets = (
 				A074728F201AD7C2001538FA /* YNSelfSizingCollectionView */,
+				A074729E201AD828001538FA /* YNSelfSizingCollectionViewDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -121,6 +185,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A074729D201AD828001538FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A07472AE201AD828001538FA /* LaunchScreen.storyboard in Resources */,
+				A07472AB201AD828001538FA /* Assets.xcassets in Resources */,
+				A07472A9201AD828001538FA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +208,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A074729B201AD828001538FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A07472A6201AD828001538FA /* ViewController.m in Sources */,
+				A07472B1201AD828001538FA /* main.m in Sources */,
+				A07472A3201AD828001538FA /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A07472A7201AD828001538FA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A07472A8201AD828001538FA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A07472AC201AD828001538FA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A07472AD201AD828001538FA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A0747296201AD7C2001538FA /* Debug */ = {
@@ -285,6 +388,32 @@
 			};
 			name = Release;
 		};
+		A07472B3201AD828001538FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YNSelfSizingCollectionViewDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanni.YNSelfSizingCollectionViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A07472B4201AD828001538FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YNSelfSizingCollectionViewDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanni.YNSelfSizingCollectionViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -302,6 +431,15 @@
 			buildConfigurations = (
 				A0747299201AD7C2001538FA /* Debug */,
 				A074729A201AD7C2001538FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A07472B2201AD828001538FA /* Build configuration list for PBXNativeTarget "YNSelfSizingCollectionViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A07472B3201AD828001538FA /* Debug */,
+				A07472B4201AD828001538FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
