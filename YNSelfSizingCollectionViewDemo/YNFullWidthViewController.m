@@ -33,7 +33,6 @@
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 0;
-    layout.estimatedItemSize = CGSizeMake(self.view.bounds.size.width, 70);
     
     YNSelfSizingCollectionView *collectionView = [[YNSelfSizingCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -67,8 +66,10 @@
     return cell;
 }
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-//    return CGSizeMake(collectionView.bounds.size.width, 60);
-//}
+- (CGSize)collectionView:(YNSelfSizingCollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return [collectionView sizeForCellWithIdentifier:[YNDynamicHeightTextCollectionViewCell description] indexPath:indexPath fixedWidth:collectionView.bounds.size.width configuration:^(YNDynamicHeightTextCollectionViewCell *cell) {
+        cell.label.text = [self.data objectAtIndex:indexPath.row];
+    }];
+}
 
 @end
