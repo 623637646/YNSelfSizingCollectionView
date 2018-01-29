@@ -6,9 +6,9 @@
 //  Copyright © 2018年 Yanni. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YNSelfSizingBaseCollectionViewCell.h"
 
-@interface YNSelfSizingDynamicHeightViewCell : UICollectionViewCell
+@interface YNSelfSizingDynamicHeightViewCell : YNSelfSizingBaseCollectionViewCell
 @property (nonatomic, strong) UIView *dynamicHeightAlignView;
 @property (nonatomic, assign) CGFloat dynamicHeightAlignOffset;
 @end
