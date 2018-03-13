@@ -15,7 +15,7 @@
 		A07472AB201AD828001538FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07472AA201AD828001538FA /* Assets.xcassets */; };
 		A07472AE201AD828001538FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07472AC201AD828001538FA /* LaunchScreen.storyboard */; };
 		A07472B1201AD828001538FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472B0201AD828001538FA /* main.m */; };
-		A07472BA201AD999001538FA /* YNFullWidthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472B9201AD999001538FA /* YNFullWidthViewController.m */; };
+		A07472BA201AD999001538FA /* YNDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472B9201AD999001538FA /* YNDemoViewController.m */; };
 		A07472BE201AE2D1001538FA /* YNSelfSizingCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A07472BC201AE2D1001538FA /* YNSelfSizingCollectionView.h */; };
 		A07472BF201AE2D1001538FA /* YNSelfSizingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472BD201AE2D1001538FA /* YNSelfSizingCollectionView.m */; };
 		A07472C2201AE402001538FA /* YNDynamicHeightTextCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472C1201AE402001538FA /* YNDynamicHeightTextCollectionViewCell.m */; };
@@ -23,8 +23,6 @@
 		A07472C4201AE600001538FA /* YNSelfSizingCollectionView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0747290201AD7C2001538FA /* YNSelfSizingCollectionView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A07472CA201B011A001538FA /* YNSelfSizingDynamicHeightViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A07472C8201B011A001538FA /* YNSelfSizingDynamicHeightViewCell.h */; };
 		A07472CB201B011A001538FA /* YNSelfSizingDynamicHeightViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472C9201B011A001538FA /* YNSelfSizingDynamicHeightViewCell.m */; };
-		A07472CE201B0139001538FA /* YNSelfSizingFixedHeightCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A07472CC201B0139001538FA /* YNSelfSizingFixedHeightCollectionViewCell.h */; };
-		A07472CF201B0139001538FA /* YNSelfSizingFixedHeightCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472CD201B0139001538FA /* YNSelfSizingFixedHeightCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,16 +63,14 @@
 		A07472AD201AD828001538FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A07472AF201AD828001538FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A07472B0201AD828001538FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A07472B8201AD999001538FA /* YNFullWidthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNFullWidthViewController.h; sourceTree = "<group>"; };
-		A07472B9201AD999001538FA /* YNFullWidthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNFullWidthViewController.m; sourceTree = "<group>"; };
+		A07472B8201AD999001538FA /* YNDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoViewController.h; sourceTree = "<group>"; };
+		A07472B9201AD999001538FA /* YNDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoViewController.m; sourceTree = "<group>"; };
 		A07472BC201AE2D1001538FA /* YNSelfSizingCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionView.h; sourceTree = "<group>"; };
 		A07472BD201AE2D1001538FA /* YNSelfSizingCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNSelfSizingCollectionView.m; sourceTree = "<group>"; };
 		A07472C0201AE402001538FA /* YNDynamicHeightTextCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDynamicHeightTextCollectionViewCell.h; sourceTree = "<group>"; };
 		A07472C1201AE402001538FA /* YNDynamicHeightTextCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDynamicHeightTextCollectionViewCell.m; sourceTree = "<group>"; };
 		A07472C8201B011A001538FA /* YNSelfSizingDynamicHeightViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingDynamicHeightViewCell.h; sourceTree = "<group>"; };
 		A07472C9201B011A001538FA /* YNSelfSizingDynamicHeightViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNSelfSizingDynamicHeightViewCell.m; sourceTree = "<group>"; };
-		A07472CC201B0139001538FA /* YNSelfSizingFixedHeightCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingFixedHeightCollectionViewCell.h; sourceTree = "<group>"; };
-		A07472CD201B0139001538FA /* YNSelfSizingFixedHeightCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNSelfSizingFixedHeightCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +125,8 @@
 			children = (
 				A07472A1201AD828001538FA /* AppDelegate.h */,
 				A07472A2201AD828001538FA /* AppDelegate.m */,
-				A07472B8201AD999001538FA /* YNFullWidthViewController.h */,
-				A07472B9201AD999001538FA /* YNFullWidthViewController.m */,
+				A07472B8201AD999001538FA /* YNDemoViewController.h */,
+				A07472B9201AD999001538FA /* YNDemoViewController.m */,
 				A07472C0201AE402001538FA /* YNDynamicHeightTextCollectionViewCell.h */,
 				A07472C1201AE402001538FA /* YNDynamicHeightTextCollectionViewCell.m */,
 				A07472A7201AD828001538FA /* Main.storyboard */,
@@ -151,8 +147,6 @@
 				A0428027201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.m */,
 				A07472C8201B011A001538FA /* YNSelfSizingDynamicHeightViewCell.h */,
 				A07472C9201B011A001538FA /* YNSelfSizingDynamicHeightViewCell.m */,
-				A07472CC201B0139001538FA /* YNSelfSizingFixedHeightCollectionViewCell.h */,
-				A07472CD201B0139001538FA /* YNSelfSizingFixedHeightCollectionViewCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -167,7 +161,6 @@
 				A07472CA201B011A001538FA /* YNSelfSizingDynamicHeightViewCell.h in Headers */,
 				A07472BE201AE2D1001538FA /* YNSelfSizingCollectionView.h in Headers */,
 				A0428028201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.h in Headers */,
-				A07472CE201B0139001538FA /* YNSelfSizingFixedHeightCollectionViewCell.h in Headers */,
 				A0747295201AD7C2001538FA /* YNSelfSizingCollectionView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,7 +271,6 @@
 				A07472CB201B011A001538FA /* YNSelfSizingDynamicHeightViewCell.m in Sources */,
 				A07472BF201AE2D1001538FA /* YNSelfSizingCollectionView.m in Sources */,
 				A0428029201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.m in Sources */,
-				A07472CF201B0139001538FA /* YNSelfSizingFixedHeightCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07472BA201AD999001538FA /* YNFullWidthViewController.m in Sources */,
+				A07472BA201AD999001538FA /* YNDemoViewController.m in Sources */,
 				A07472B1201AD828001538FA /* main.m in Sources */,
 				A07472A3201AD828001538FA /* AppDelegate.m in Sources */,
 				A07472C2201AE402001538FA /* YNDynamicHeightTextCollectionViewCell.m in Sources */,
