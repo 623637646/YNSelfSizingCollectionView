@@ -79,4 +79,8 @@
     [[self sizeCache] removeAllObjects];
 }
 
+- (BOOL)isTestCell:(UICollectionViewCell*)cell{
+    return [[self.templeCells allValues] containsObject:cell];
+}
+
 @end

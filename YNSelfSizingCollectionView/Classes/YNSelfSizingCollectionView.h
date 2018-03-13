@@ -16,4 +16,6 @@
                       configuration:(void (^)(__kindof UICollectionViewCell *))configuration;
 
 - (void)invalidateCache;
+
+- (BOOL)isTestCell:(UICollectionViewCell*)cell;
 @end
