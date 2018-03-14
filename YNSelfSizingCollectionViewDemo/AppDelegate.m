@@ -16,7 +16,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+//    UIView *view = [[UIView alloc] init];
+//    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:103.5f];
+//    [view addConstraint:width];
+//    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:200];
+//    [view addConstraint:height];
+//    CGSize size = [view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+//    NSLog(@"%@",NSStringFromCGSize(size));
     return YES;
 }
 

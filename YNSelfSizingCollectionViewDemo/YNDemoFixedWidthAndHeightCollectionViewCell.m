@@ -1,20 +1,24 @@
 //
-//  YNDynamicHeightTextCollectionViewCell.m
+//  YNDemoFixedWidthAndHeightCollectionViewCell.m
 //  YNSelfSizingCollectionViewDemo
 //
-//  Created by wangya on 2018/1/26.
+//  Created by wangya on 2018/3/13.
 //  Copyright © 2018年 Yanni. All rights reserved.
 //
 
-#import "YNDynamicHeightTextCollectionViewCell.h"
+#import "YNDemoFixedWidthAndHeightCollectionViewCell.h"
 
-@implementation YNDynamicHeightTextCollectionViewCell
+@interface YNDemoFixedWidthAndHeightCollectionViewCell()
+@property (nonatomic, weak) UILabel *label;
+@end
+
+@implementation YNDemoFixedWidthAndHeightCollectionViewCell
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         UILabel *label = [[UILabel alloc] init];
-        label.backgroundColor = [UIColor whiteColor];
         label.numberOfLines = 0;
         label.font = [UIFont systemFontOfSize:30];
         label.translatesAutoresizingMaskIntoConstraints = NO;
@@ -28,10 +32,25 @@
             constraint;
         })];
         self.label = label;
-        
-        self.dynamicHeightAlignView = label;
-        self.dynamicHeightAlignOffset = 20;
     }
     return self;
 }
+
+-(void)setTitle:(NSString *)title{
+    self.label.text = title;
+    [self setNeedsUpdateConstraints];
+}
+
+-(YNSelfSizingBaseCollectionViewCellType) type{
+    return YNSelfSizingBaseCollectionViewCellTypeFixedWidthAndHeight;
+}
+
+-(CGFloat)fixedWidth{
+    return [UIScreen mainScreen].bounds.size.width / 4.f;
+}
+
+-(CGFloat)fixedHeight{
+    return [UIScreen mainScreen].bounds.size.width / 4.f;
+}
+
 @end

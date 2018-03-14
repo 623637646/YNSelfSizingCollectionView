@@ -17,7 +17,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(nonnull UICollectionViewLayout *)layout
 {
-    NSAssert(layout && [layout isKindOfClass:UICollectionViewFlowLayout.class], @"layout invalid");
     self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
         self.sizeCache = [NSMutableDictionary<NSIndexPath*, NSValue*> dictionary];
@@ -37,14 +36,7 @@
 
 -(void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier{
     [super registerClass:cellClass forCellWithReuseIdentifier:identifier];
-    UICollectionViewScrollDirection scrollDirection = ((UICollectionViewFlowLayout*)self.collectionViewLayout).scrollDirection;
-    CGRect frame;
-    if (scrollDirection == UICollectionViewScrollDirectionVertical) {
-        frame = CGRectMake(0, 0, self.bounds.size.width, 0);
-    }else{
-        frame = CGRectMake(0, 0, 0, self.bounds.size.height);
-    }
-    id cell = [[cellClass alloc] initWithFrame:frame];
+    id cell = [[cellClass alloc] initWithFrame:CGRectZero];
     NSAssert(cell, @"cell is nil");
     [self.templeCells setObject:cell forKey:identifier];
 }
@@ -69,7 +61,8 @@
     UICollectionViewCell *cell = [self.templeCells objectForKey:identifier];
     NSAssert(cell, @"cell is nil");
     configuration(cell);
-    CGSize size = [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    size = [self fixSize:size];
     NSValue *sizeValue = [NSValue valueWithCGSize:size];
     [self.sizeCache setObject:sizeValue forKey:indexPath];
     return size;
@@ -81,6 +74,19 @@
 
 - (BOOL)isTestCell:(UICollectionViewCell*)cell{
     return [[self.templeCells allValues] containsObject:cell];
+}
+
+#pragma mark - private
+
+-(CGSize)fixSize:(CGSize)size{
+    return CGSizeMake([self fixFloat:size.width], [self fixFloat:size.height]);
+}
+
+-(CGFloat)fixFloat:(CGFloat)number{
+    NSInteger interNumber = number;
+    CGFloat diff = number - interNumber;
+    diff = diff < 0.5f ? 0 : 0.5f;
+    return interNumber + diff;
 }
 
 @end

@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, YNSelfSizingBaseCollectionViewCellType) {
+    YNSelfSizingBaseCollectionViewCellTypeFixedWidthAndHeight,
+    YNSelfSizingBaseCollectionViewCellTypeFixedWidth,
+    YNSelfSizingBaseCollectionViewCellTypeFixedHeight
+};
+
 @interface YNSelfSizingBaseCollectionViewCell : UICollectionViewCell
+
+-(YNSelfSizingBaseCollectionViewCellType) type;
+-(CGFloat)fixedWidth;
+-(CGFloat)fixedHeight;
+-(UIView*)alignView;
+-(CGFloat)alignOffset;
 
 @end
