@@ -15,6 +15,8 @@ typedef NS_ENUM(NSUInteger, YNSelfSizingCollectionViewCellType) {
 
 @interface YNSelfSizingCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, assign) BOOL isTestCell;
+
 -(YNSelfSizingCollectionViewCellType) type;
 -(CGFloat)fixedWidth;
 -(CGFloat)fixedHeight;

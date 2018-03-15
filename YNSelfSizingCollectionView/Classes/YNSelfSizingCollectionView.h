@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YNSelfSizingCollectionViewCell.h"
 
 @interface YNSelfSizingCollectionView : UICollectionView
 
 
 - (CGSize)sizeForCellWithIdentifier:(NSString *)identifier
                           indexPath:(NSIndexPath *)indexPath
-                      configuration:(void (^)(__kindof UICollectionViewCell *))configuration;
+                      configuration:(void (^)(__kindof YNSelfSizingCollectionViewCell *))configuration;
 
 - (void)invalidateCache;
-
-- (BOOL)isTestCell:(UICollectionViewCell*)cell;
 @end

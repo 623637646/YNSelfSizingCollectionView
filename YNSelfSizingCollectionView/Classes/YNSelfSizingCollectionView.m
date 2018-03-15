@@ -10,7 +10,7 @@
 
 @interface YNSelfSizingCollectionView()
 @property (nonatomic, strong) NSMutableDictionary<NSIndexPath*, NSValue*> *sizeCache;
-@property (nonatomic, strong) NSMutableDictionary<NSString*, UICollectionViewCell*> *templeCells;
+@property (nonatomic, strong) NSMutableDictionary<NSString*, YNSelfSizingCollectionViewCell*> *templeCells;
 @end
 
 @implementation YNSelfSizingCollectionView
@@ -20,7 +20,7 @@
     self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
         self.sizeCache = [NSMutableDictionary<NSIndexPath*, NSValue*> dictionary];
-        self.templeCells = [NSMutableDictionary<NSString*, UICollectionViewCell*> dictionary];
+        self.templeCells = [NSMutableDictionary<NSString*, YNSelfSizingCollectionViewCell*> dictionary];
     }
     return self;
 }
@@ -30,15 +30,19 @@
 -(void)registerNib:(UINib *)nib forCellWithReuseIdentifier:(NSString *)identifier{
     [super registerNib:nib forCellWithReuseIdentifier:identifier];
     id cell = [[nib instantiateWithOwner:nil options:nil] lastObject];
-    NSAssert(cell, @"cell is nil");
-    [self.templeCells setObject:cell forKey:identifier];
+    if (cell && [cell isKindOfClass:YNSelfSizingCollectionViewCell.class]) {
+        ((YNSelfSizingCollectionViewCell*)cell).isTestCell = YES;
+        [self.templeCells setObject:cell forKey:identifier];
+    }
 }
 
 -(void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier{
     [super registerClass:cellClass forCellWithReuseIdentifier:identifier];
     id cell = [[cellClass alloc] initWithFrame:CGRectZero];
-    NSAssert(cell, @"cell is nil");
-    [self.templeCells setObject:cell forKey:identifier];
+    if (cell && [cell isKindOfClass:YNSelfSizingCollectionViewCell.class]) {
+        ((YNSelfSizingCollectionViewCell*)cell).isTestCell = YES;
+        [self.templeCells setObject:cell forKey:identifier];
+    }
 }
 
 -(void)reloadData{
@@ -52,13 +56,13 @@
 
 - (CGSize)sizeForCellWithIdentifier:(NSString *)identifier
                           indexPath:(NSIndexPath *)indexPath
-                      configuration:(void (^)(__kindof UICollectionViewCell *))configuration{
+                      configuration:(void (^)(__kindof YNSelfSizingCollectionViewCell *))configuration{
     if ([self.sizeCache.allKeys containsObject:indexPath]) {
         return [[self.sizeCache objectForKey:indexPath] CGSizeValue];
     }
     
     // has no size chche
-    UICollectionViewCell *cell = [self.templeCells objectForKey:identifier];
+    YNSelfSizingCollectionViewCell *cell = [self.templeCells objectForKey:identifier];
     NSAssert(cell, @"cell is nil");
     configuration(cell);
     CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
@@ -70,10 +74,6 @@
 
 -(void)invalidateCache{
     [[self sizeCache] removeAllObjects];
-}
-
-- (BOOL)isTestCell:(UICollectionViewCell*)cell{
-    return [[self.templeCells allValues] containsObject:cell];
 }
 
 #pragma mark - private
