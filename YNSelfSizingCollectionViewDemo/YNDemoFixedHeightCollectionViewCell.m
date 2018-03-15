@@ -41,8 +41,8 @@
     [self setNeedsUpdateConstraints];
 }
 
--(YNSelfSizingBaseCollectionViewCellType) type{
-    return YNSelfSizingBaseCollectionViewCellTypeFixedHeight;
+-(YNSelfSizingCollectionViewCellType) type{
+    return YNSelfSizingCollectionViewCellTypeFixedHeight;
 }
 
 -(CGFloat)fixedHeight{

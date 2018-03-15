@@ -6,8 +6,8 @@
 //  Copyright © 2018年 Yanni. All rights reserved.
 //
 
-#import "YNSelfSizingBaseCollectionViewCell.h"
+#import "YNSelfSizingCollectionViewCell.h"
 
-@interface YNDemoFixedWidthAndHeightCollectionViewCell : YNSelfSizingBaseCollectionViewCell
+@interface YNDemoFixedWidthAndHeightCollectionViewCell : YNSelfSizingCollectionViewCell
 @property (nonatomic, copy) NSString *title;
 @end

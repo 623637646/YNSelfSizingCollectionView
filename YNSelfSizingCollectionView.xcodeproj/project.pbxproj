@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A0428028201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A0428026201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.h */; };
-		A0428029201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0428027201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.m */; };
+		A0428028201EFB8100048D5E /* YNSelfSizingCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A0428026201EFB8100048D5E /* YNSelfSizingCollectionViewCell.h */; };
+		A0428029201EFB8100048D5E /* YNSelfSizingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0428027201EFB8100048D5E /* YNSelfSizingCollectionViewCell.m */; };
 		A0747295201AD7C2001538FA /* YNSelfSizingCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A0747293201AD7C2001538FA /* YNSelfSizingCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A07472A3201AD828001538FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472A2201AD828001538FA /* AppDelegate.m */; };
 		A07472A9201AD828001538FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07472A7201AD828001538FA /* Main.storyboard */; };
@@ -51,8 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A0428026201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingBaseCollectionViewCell.h; sourceTree = "<group>"; };
-		A0428027201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNSelfSizingBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		A0428026201EFB8100048D5E /* YNSelfSizingCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionViewCell.h; sourceTree = "<group>"; };
+		A0428027201EFB8100048D5E /* YNSelfSizingCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNSelfSizingCollectionViewCell.m; sourceTree = "<group>"; };
 		A0747290201AD7C2001538FA /* YNSelfSizingCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YNSelfSizingCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0747293201AD7C2001538FA /* YNSelfSizingCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionView.h; sourceTree = "<group>"; };
 		A0747294201AD7C2001538FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,8 +154,8 @@
 			children = (
 				A07472BC201AE2D1001538FA /* YNSelfSizingCollectionView.h */,
 				A07472BD201AE2D1001538FA /* YNSelfSizingCollectionView.m */,
-				A0428026201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.h */,
-				A0428027201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.m */,
+				A0428026201EFB8100048D5E /* YNSelfSizingCollectionViewCell.h */,
+				A0428027201EFB8100048D5E /* YNSelfSizingCollectionViewCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -168,7 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A07472BE201AE2D1001538FA /* YNSelfSizingCollectionView.h in Headers */,
-				A0428028201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.h in Headers */,
+				A0428028201EFB8100048D5E /* YNSelfSizingCollectionViewCell.h in Headers */,
 				A0747295201AD7C2001538FA /* YNSelfSizingCollectionView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,7 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A07472BF201AE2D1001538FA /* YNSelfSizingCollectionView.m in Sources */,
-				A0428029201EFB8100048D5E /* YNSelfSizingBaseCollectionViewCell.m in Sources */,
+				A0428029201EFB8100048D5E /* YNSelfSizingCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

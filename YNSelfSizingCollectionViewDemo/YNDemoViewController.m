@@ -83,7 +83,7 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    YNSelfSizingBaseCollectionViewCell *cell = nil;
+    YNSelfSizingCollectionViewCell *cell = nil;
     switch (indexPath.section) {
         case 0:{
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDemoFixedWidthAndHeightCollectionViewCell description] forIndexPath:indexPath];

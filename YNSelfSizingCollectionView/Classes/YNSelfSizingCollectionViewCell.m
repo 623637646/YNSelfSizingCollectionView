@@ -1,18 +1,17 @@
 //
-//  YNSelfSizingBaseCollectionViewCell.m
-//  YNSelfSizingCollectionView
+//  YNSelfSizingCollectionViewCell.m
 //
 //  Created by wangya on 2018/1/29.
 //  Copyright © 2018年 Yanni. All rights reserved.
 //
 
-#import "YNSelfSizingBaseCollectionViewCell.h"
+#import "YNSelfSizingCollectionViewCell.h"
 
-@interface YNSelfSizingBaseCollectionViewCell()
+@interface YNSelfSizingCollectionViewCell()
 @property (nonatomic, copy) NSArray *contentViewConstraints;
 @end
 
-@implementation YNSelfSizingBaseCollectionViewCell
+@implementation YNSelfSizingCollectionViewCell
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -51,14 +50,14 @@
 -(NSArray*)generateConstraints{
     NSMutableArray *array = [NSMutableArray array];
     switch ([self type]) {
-        case YNSelfSizingBaseCollectionViewCellTypeFixedWidthAndHeight:{
+        case YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight:{
             NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self fixedWidth]];
             [array addObject:width];
             NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self fixedHeight]];
             [array addObject:height];
             break;
         }
-        case YNSelfSizingBaseCollectionViewCellTypeFixedWidth:{
+        case YNSelfSizingCollectionViewCellTypeFixedWidth:{
             // width
             NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self fixedWidth]];
             [array addObject:width];
@@ -72,7 +71,7 @@
             }
             break;
         }
-        case YNSelfSizingBaseCollectionViewCellTypeFixedHeight:{
+        case YNSelfSizingCollectionViewCellTypeFixedHeight:{
             // height
             NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self fixedHeight]];
             [array addObject:height];
@@ -97,8 +96,8 @@
 
 #pragma public
 
--(YNSelfSizingBaseCollectionViewCellType) type{
-    return YNSelfSizingBaseCollectionViewCellTypeFixedWidthAndHeight;
+-(YNSelfSizingCollectionViewCellType) type{
+    return YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight;
 }
 
 -(CGFloat)fixedWidth{

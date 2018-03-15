@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YNSelfSizingBaseCollectionViewCell.h"
+#import "YNSelfSizingCollectionViewCell.h"
 
-@interface YNDemoFixedWidthCollectionViewCell : YNSelfSizingBaseCollectionViewCell
+@interface YNDemoFixedWidthCollectionViewCell : YNSelfSizingCollectionViewCell
 @property (nonatomic, copy) NSString *title;
 @end
