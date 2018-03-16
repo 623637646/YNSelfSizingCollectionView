@@ -1,0 +1,2 @@
+# YNSelfSizingCollectionView
+self sizing UICollectionView
