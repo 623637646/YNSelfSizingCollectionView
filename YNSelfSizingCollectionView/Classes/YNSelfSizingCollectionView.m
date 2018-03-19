@@ -65,6 +65,10 @@
     YNSelfSizingCollectionViewCell *cell = [self.templeCells objectForKey:identifier];
     NSAssert(cell, @"cell is nil");
     configuration(cell);
+    [cell.contentView setNeedsUpdateConstraints];
+    [cell.contentView setNeedsLayout];
+    [cell.contentView updateConstraintsIfNeeded];
+    [cell.contentView layoutIfNeeded];
     CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     size = [self fixSize:size];
     NSValue *sizeValue = [NSValue valueWithCGSize:size];
