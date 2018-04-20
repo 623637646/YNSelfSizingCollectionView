@@ -32,6 +32,7 @@
     id cell = [[nib instantiateWithOwner:nil options:nil] lastObject];
     if (cell && [cell isKindOfClass:YNSelfSizingCollectionViewCell.class]) {
         ((YNSelfSizingCollectionViewCell*)cell).isTestCell = YES;
+        ((YNSelfSizingCollectionViewCell*)cell).collectionView = self;
         [self.templeCells setObject:cell forKey:identifier];
     }
 }
@@ -41,6 +42,7 @@
     id cell = [[cellClass alloc] initWithFrame:CGRectZero];
     if (cell && [cell isKindOfClass:YNSelfSizingCollectionViewCell.class]) {
         ((YNSelfSizingCollectionViewCell*)cell).isTestCell = YES;
+        ((YNSelfSizingCollectionViewCell*)cell).collectionView = self;
         [self.templeCells setObject:cell forKey:identifier];
     }
 }
@@ -50,6 +52,13 @@
     [self invalidateCache];
 }
 
+- (__kindof UICollectionViewCell *)dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [super dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    if (cell && [cell isKindOfClass:YNSelfSizingCollectionViewCell.class]) {
+        ((YNSelfSizingCollectionViewCell*)cell).collectionView = self;
+    }
+    return cell;
+}
 
 
 #pragma mark - public

@@ -7,6 +7,7 @@
 //
 
 #import "YNDemoFixedWidthAndHeightCollectionViewCell.h"
+#import "YNSelfSizingCollectionView.h"
 
 @interface YNDemoFixedWidthAndHeightCollectionViewCell()
 @property (nonatomic, weak) UILabel *label;
@@ -46,11 +47,11 @@
 }
 
 -(CGFloat)fixedWidth{
-    return [UIScreen mainScreen].bounds.size.width / 4.f;
+    return self.collectionView.bounds.size.width / 4.f;
 }
 
 -(CGFloat)fixedHeight{
-    return [UIScreen mainScreen].bounds.size.width / 4.f;
+    return self.collectionView.bounds.size.width / 4.f;
 }
 
 @end

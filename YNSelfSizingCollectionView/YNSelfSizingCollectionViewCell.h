@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class YNSelfSizingCollectionView;
 typedef NS_ENUM(NSUInteger, YNSelfSizingCollectionViewCellType) {
     YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight,
     YNSelfSizingCollectionViewCellTypeFixedWidth,
@@ -15,6 +16,7 @@ typedef NS_ENUM(NSUInteger, YNSelfSizingCollectionViewCellType) {
 
 @interface YNSelfSizingCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, weak) YNSelfSizingCollectionView *collectionView;
 @property (nonatomic, assign) BOOL isTestCell;
 
 -(YNSelfSizingCollectionViewCellType) type;
