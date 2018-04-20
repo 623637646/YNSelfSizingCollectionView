@@ -54,6 +54,6 @@
 }
 
 -(CGFloat)alignOffset{
-    return 0;
+    return 20;
 }
 @end
