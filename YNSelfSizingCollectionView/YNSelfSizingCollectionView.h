@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YNSelfSizingCollectionViewCell.h"
 
-//! Project version number for YNSelfSizingCollectionView.
-FOUNDATION_EXPORT double YNSelfSizingCollectionViewVersionNumber;
-
-//! Project version string for YNSelfSizingCollectionView.
-FOUNDATION_EXPORT const unsigned char YNSelfSizingCollectionViewVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <YNSelfSizingCollectionView/PublicHeader.h>
+@interface YNSelfSizingCollectionView : UICollectionView
 
 
+- (CGSize)sizeForCellWithIdentifier:(NSString *)identifier
+                          indexPath:(NSIndexPath *)indexPath
+                      configuration:(void (^)(__kindof YNSelfSizingCollectionViewCell *))configuration;
+
+- (void)invalidateCache;
+@end

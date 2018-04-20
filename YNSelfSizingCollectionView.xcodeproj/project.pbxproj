@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A0428028201EFB8100048D5E /* YNSelfSizingCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A0428026201EFB8100048D5E /* YNSelfSizingCollectionViewCell.h */; };
-		A0428029201EFB8100048D5E /* YNSelfSizingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0428027201EFB8100048D5E /* YNSelfSizingCollectionViewCell.m */; };
-		A0747295201AD7C2001538FA /* YNSelfSizingCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A0747293201AD7C2001538FA /* YNSelfSizingCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A058B4FF20899403007E1093 /* YNSelfSizingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A058B4FB20899403007E1093 /* YNSelfSizingCollectionView.m */; };
+		A058B50020899403007E1093 /* YNSelfSizingCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A058B4FC20899403007E1093 /* YNSelfSizingCollectionViewCell.h */; };
+		A058B50120899403007E1093 /* YNSelfSizingCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A058B4FD20899403007E1093 /* YNSelfSizingCollectionView.h */; };
+		A058B50220899403007E1093 /* YNSelfSizingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A058B4FE20899403007E1093 /* YNSelfSizingCollectionViewCell.m */; };
 		A07472A3201AD828001538FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472A2201AD828001538FA /* AppDelegate.m */; };
 		A07472A9201AD828001538FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07472A7201AD828001538FA /* Main.storyboard */; };
 		A07472AB201AD828001538FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07472AA201AD828001538FA /* Assets.xcassets */; };
 		A07472AE201AD828001538FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07472AC201AD828001538FA /* LaunchScreen.storyboard */; };
 		A07472B1201AD828001538FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472B0201AD828001538FA /* main.m */; };
 		A07472BA201AD999001538FA /* YNDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472B9201AD999001538FA /* YNDemoViewController.m */; };
-		A07472BE201AE2D1001538FA /* YNSelfSizingCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A07472BC201AE2D1001538FA /* YNSelfSizingCollectionView.h */; };
-		A07472BF201AE2D1001538FA /* YNSelfSizingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472BD201AE2D1001538FA /* YNSelfSizingCollectionView.m */; };
 		A07472C2201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472C1201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.m */; };
 		A07472C3201AE600001538FA /* YNSelfSizingCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0747290201AD7C2001538FA /* YNSelfSizingCollectionView.framework */; };
 		A07472C4201AE600001538FA /* YNSelfSizingCollectionView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0747290201AD7C2001538FA /* YNSelfSizingCollectionView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -51,10 +50,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A0428026201EFB8100048D5E /* YNSelfSizingCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionViewCell.h; sourceTree = "<group>"; };
-		A0428027201EFB8100048D5E /* YNSelfSizingCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNSelfSizingCollectionViewCell.m; sourceTree = "<group>"; };
+		A058B4FB20899403007E1093 /* YNSelfSizingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNSelfSizingCollectionView.m; sourceTree = "<group>"; };
+		A058B4FC20899403007E1093 /* YNSelfSizingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionViewCell.h; sourceTree = "<group>"; };
+		A058B4FD20899403007E1093 /* YNSelfSizingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionView.h; sourceTree = "<group>"; };
+		A058B4FE20899403007E1093 /* YNSelfSizingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNSelfSizingCollectionViewCell.m; sourceTree = "<group>"; };
 		A0747290201AD7C2001538FA /* YNSelfSizingCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YNSelfSizingCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0747293201AD7C2001538FA /* YNSelfSizingCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionView.h; sourceTree = "<group>"; };
 		A0747294201AD7C2001538FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A074729F201AD828001538FA /* YNSelfSizingCollectionViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNSelfSizingCollectionViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07472A1201AD828001538FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,8 +66,6 @@
 		A07472B0201AD828001538FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A07472B8201AD999001538FA /* YNDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoViewController.h; sourceTree = "<group>"; };
 		A07472B9201AD999001538FA /* YNDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoViewController.m; sourceTree = "<group>"; };
-		A07472BC201AE2D1001538FA /* YNSelfSizingCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionView.h; sourceTree = "<group>"; };
-		A07472BD201AE2D1001538FA /* YNSelfSizingCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNSelfSizingCollectionView.m; sourceTree = "<group>"; };
 		A07472C0201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoFixedWidthCollectionViewCell.h; sourceTree = "<group>"; };
 		A07472C1201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoFixedWidthCollectionViewCell.m; sourceTree = "<group>"; };
 		A0A631C02057E574006285E2 /* YNDemoFixedWidthAndHeightCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoFixedWidthAndHeightCollectionViewCell.h; sourceTree = "<group>"; };
@@ -118,8 +116,10 @@
 		A0747292201AD7C2001538FA /* YNSelfSizingCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				A07472BB201AE2B4001538FA /* Classes */,
-				A0747293201AD7C2001538FA /* YNSelfSizingCollectionView.h */,
+				A058B4FD20899403007E1093 /* YNSelfSizingCollectionView.h */,
+				A058B4FB20899403007E1093 /* YNSelfSizingCollectionView.m */,
+				A058B4FC20899403007E1093 /* YNSelfSizingCollectionViewCell.h */,
+				A058B4FE20899403007E1093 /* YNSelfSizingCollectionViewCell.m */,
 				A0747294201AD7C2001538FA /* Info.plist */,
 			);
 			path = YNSelfSizingCollectionView;
@@ -149,17 +149,6 @@
 			path = YNSelfSizingCollectionViewDemo;
 			sourceTree = "<group>";
 		};
-		A07472BB201AE2B4001538FA /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				A07472BC201AE2D1001538FA /* YNSelfSizingCollectionView.h */,
-				A07472BD201AE2D1001538FA /* YNSelfSizingCollectionView.m */,
-				A0428026201EFB8100048D5E /* YNSelfSizingCollectionViewCell.h */,
-				A0428027201EFB8100048D5E /* YNSelfSizingCollectionViewCell.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -167,9 +156,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07472BE201AE2D1001538FA /* YNSelfSizingCollectionView.h in Headers */,
-				A0428028201EFB8100048D5E /* YNSelfSizingCollectionViewCell.h in Headers */,
-				A0747295201AD7C2001538FA /* YNSelfSizingCollectionView.h in Headers */,
+				A058B50120899403007E1093 /* YNSelfSizingCollectionView.h in Headers */,
+				A058B50020899403007E1093 /* YNSelfSizingCollectionViewCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07472BF201AE2D1001538FA /* YNSelfSizingCollectionView.m in Sources */,
-				A0428029201EFB8100048D5E /* YNSelfSizingCollectionViewCell.m in Sources */,
+				A058B50220899403007E1093 /* YNSelfSizingCollectionViewCell.m in Sources */,
+				A058B4FF20899403007E1093 /* YNSelfSizingCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
