@@ -41,7 +41,7 @@
     [self setNeedsUpdateConstraints];
 }
 
--(YNSelfSizingCollectionViewCellType) type{
+-(YNSelfSizingCollectionViewCellType)selfSizingType{
     return YNSelfSizingCollectionViewCellTypeFixedWidth;
 }
 

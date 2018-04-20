@@ -49,7 +49,7 @@
 
 -(NSArray*)generateConstraints{
     NSMutableArray *array = [NSMutableArray array];
-    switch ([self type]) {
+    switch ([self selfSizingType]) {
         case YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight:{
             NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self fixedWidth]];
             [array addObject:width];
@@ -96,7 +96,7 @@
 
 #pragma public
 
--(YNSelfSizingCollectionViewCellType) type{
+-(YNSelfSizingCollectionViewCellType)selfSizingType{
     return YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight;
 }
 
