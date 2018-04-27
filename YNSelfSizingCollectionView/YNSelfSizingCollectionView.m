@@ -8,6 +8,17 @@
 
 #import "YNSelfSizingCollectionView.h"
 
+CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
+{
+    static CGFloat scale;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^(){
+        scale = [UIScreen mainScreen].scale;
+    });
+    
+    return roundf(value * scale) / scale;
+}
+
 @interface YNSelfSizingCollectionView()
 @property (nonatomic, strong) NSMutableDictionary<NSIndexPath*, NSValue*> *sizeCache;
 @property (nonatomic, strong) NSMutableDictionary<NSString*, YNSelfSizingCollectionViewCell*> *templeCells;
@@ -156,19 +167,6 @@
     NSValue *sizeValue = [NSValue valueWithCGSize:size];
     [self.sizeCache setObject:sizeValue forKey:indexPath];
     return size;
-}
-
-#pragma mark - private
-
-static CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
-{
-    static CGFloat scale;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^(){
-        scale = [UIScreen mainScreen].scale;
-    });
-    
-    return roundf(value * scale) / scale;
 }
 
 @end

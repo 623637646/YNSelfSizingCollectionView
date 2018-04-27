@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "YNSelfSizingCollectionViewCell.h"
 
+// utils
+CGFloat YNSelfSizingRoundPixelValue(CGFloat value);
+
+
 @interface YNSelfSizingCollectionView : UICollectionView
 
 - (CGSize)sizeForCellWithIdentifier:(NSString *)identifier
