@@ -25,4 +25,6 @@ typedef NS_ENUM(NSUInteger, YNSelfSizingCollectionViewCellType) {
 -(UIView*)alignView;
 -(CGFloat)alignOffset;
 
+// must use contentView's method
+- (void)addSubview:(UIView *)view NS_UNAVAILABLE;
 @end

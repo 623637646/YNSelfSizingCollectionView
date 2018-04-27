@@ -11,10 +11,7 @@
 
 @interface YNSelfSizingCollectionView : UICollectionView
 
-
 - (CGSize)sizeForCellWithIdentifier:(NSString *)identifier
                           indexPath:(NSIndexPath *)indexPath
                       configuration:(void (^)(__kindof YNSelfSizingCollectionViewCell *))configuration;
-
-- (void)invalidateCache;
 @end

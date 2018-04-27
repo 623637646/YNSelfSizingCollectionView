@@ -47,11 +47,6 @@
     }
 }
 
--(void)reloadData{
-    [super reloadData];
-    [self invalidateCache];
-}
-
 - (__kindof UICollectionViewCell *)dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [super dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     if (cell && [cell isKindOfClass:YNSelfSizingCollectionViewCell.class]) {
@@ -60,6 +55,84 @@
     return cell;
 }
 
+#pragma mark - reload data
+
+-(void)reloadData{
+    [self.sizeCache removeAllObjects];
+    [super reloadData];
+}
+
+- (void)reloadSections:(NSIndexSet *)sections {
+    NSMutableArray<NSIndexPath*> *needRemove = [NSMutableArray<NSIndexPath*> array];
+    for (NSIndexPath *indexPath in self.sizeCache.allKeys) {
+        if ([sections containsIndex:indexPath.section]) {
+            [needRemove addObject:indexPath];
+        }
+    }
+    [self.sizeCache removeObjectsForKeys:needRemove];
+    [super reloadSections:sections];
+}
+
+- (void)deleteSections:(NSIndexSet *)sections {
+    NSMutableArray<NSIndexPath*> *needRemove = [NSMutableArray<NSIndexPath*> array];
+    for (NSIndexPath *indexPath in self.sizeCache.allKeys) {
+        if ([sections containsIndex:indexPath.section]) {
+            [needRemove addObject:indexPath];
+        }
+    }
+    [self.sizeCache removeObjectsForKeys:needRemove];
+    [super deleteSections:sections];
+}
+
+- (void)moveSection:(NSInteger)section toSection:(NSInteger)newSection {
+    NSMutableArray<NSIndexPath*> *needMove = [NSMutableArray<NSIndexPath*> array];
+    NSMutableArray<NSIndexPath*> *needMoveNew = [NSMutableArray<NSIndexPath*> array];
+    for (NSIndexPath *indexPath in self.sizeCache.allKeys) {
+        if (indexPath.section == section) {
+            [needMove addObject:indexPath];
+        }
+        if (indexPath.section == newSection) {
+            [needMoveNew addObject:indexPath];
+        }
+    }
+    NSMutableDictionary<NSIndexPath*, NSValue*> *newSizeCache = [self.sizeCache mutableCopy];
+    for (NSIndexPath *indexPath in newSizeCache.allKeys) {
+        if (indexPath.section == section) {
+            [newSizeCache removeObjectForKey:indexPath];
+        }
+        if (indexPath.section == newSection) {
+            [newSizeCache removeObjectForKey:indexPath];
+        }
+    }
+    for (NSIndexPath *indexPath in needMove) {
+        NSValue *value = [self.sizeCache objectForKey:indexPath];
+        [newSizeCache setObject:value forKey:[NSIndexPath indexPathForRow:indexPath.row inSection:newSection]];
+    }
+    for (NSIndexPath *indexPath in needMoveNew) {
+        NSValue *value = [self.sizeCache objectForKey:indexPath];
+        [newSizeCache setObject:value forKey:[NSIndexPath indexPathForRow:indexPath.row inSection:section]];
+    }
+    self.sizeCache = newSizeCache;
+    [super moveSection:section toSection:newSection];
+}
+
+- (void)reloadItemsAtIndexPaths:(NSArray *)indexPaths {
+    [self.sizeCache removeObjectsForKeys:indexPaths];
+    [self reloadItemsAtIndexPaths:indexPaths];
+}
+
+- (void)deleteItemsAtIndexPaths:(NSArray *)indexPaths {
+    [self.sizeCache removeObjectsForKeys:indexPaths];
+    [self deleteItemsAtIndexPaths:indexPaths];
+}
+
+- (void)moveItemAtIndexPath:(NSIndexPath *)indexPath
+                toIndexPath:(NSIndexPath *)newIndexPath {
+    NSValue *tempValue = [self.sizeCache objectForKey:indexPath];
+    [self.sizeCache setObject:[self.sizeCache objectForKey:newIndexPath] forKey:indexPath];
+    [self.sizeCache setObject:tempValue forKey:newIndexPath];
+    [self moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
+}
 
 #pragma mark - public
 
@@ -79,27 +152,23 @@
     [cell.contentView updateConstraintsIfNeeded];
     [cell.contentView layoutIfNeeded];
     CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    size = [self fixSize:size];
+    size = CGSizeMake(YNSelfSizingRoundPixelValue(size.width), YNSelfSizingRoundPixelValue(size.height));
     NSValue *sizeValue = [NSValue valueWithCGSize:size];
     [self.sizeCache setObject:sizeValue forKey:indexPath];
     return size;
 }
 
--(void)invalidateCache{
-    [[self sizeCache] removeAllObjects];
-}
-
 #pragma mark - private
 
--(CGSize)fixSize:(CGSize)size{
-    return CGSizeMake([self fixFloat:size.width], [self fixFloat:size.height]);
-}
-
--(CGFloat)fixFloat:(CGFloat)number{
-    NSInteger interNumber = number;
-    CGFloat diff = number - interNumber;
-    diff = diff < 0.5f ? 0 : 0.5f;
-    return interNumber + diff;
+static CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
+{
+    static CGFloat scale;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^(){
+        scale = [UIScreen mainScreen].scale;
+    });
+    
+    return roundf(value * scale) / scale;
 }
 
 @end

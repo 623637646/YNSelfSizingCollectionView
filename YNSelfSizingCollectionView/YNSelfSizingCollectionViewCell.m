@@ -29,11 +29,6 @@
     return self;
 }
 
--(void)addSubview:(UIView *)view{
-    [super addSubview:view];
-    NSAssert(self.contentView == view, @"must add subviews to self.contentView");
-}
-
 -(void)updateConstraints{
     if (self.contentViewConstraints) {
         [self.contentView removeConstraints:self.contentViewConstraints];
