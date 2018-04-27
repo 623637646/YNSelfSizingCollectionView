@@ -46,7 +46,7 @@
 }
 
 -(CGFloat)fixedWidth{
-    return self.collectionView.bounds.size.width / 4.f;
+    return (int)(self.collectionView.bounds.size.width / 4.f);
 }
 
 -(UIView*)alignView{
