@@ -29,8 +29,10 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    self.label.frame = CGRectMake(20, 20, CGFLOAT_MAX, 0);
+    self.label.frame = CGRectMake(0, 0, CGFLOAT_MAX, 0);
     [self.label sizeToFit];
+    self.label.frame = CGRectMake(20, (self.bounds.size.height - self.label.frame.size.height) / 2.f, self.label.frame.size.width, self.label.frame.size.height);
+    
 }
 
 -(void)setTitle:(NSString *)title{
