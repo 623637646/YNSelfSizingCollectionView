@@ -16,32 +16,70 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
         self.contentView.clipsToBounds = YES;
-        // left
-        NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
-        [self addConstraint:left];
-        
-        // top
-        NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
-        [self addConstraint:top];
+        switch ([self layoutType]) {
+            case YNSelfSizingCollectionViewCellLayoutTypeFrame:{
+                
+                break;
+            }
+            case YNSelfSizingCollectionViewCellLayoutTypeAutoLayout:{
+                self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+                // left
+                NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+                [self addConstraint:left];
+                
+                // top
+                NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+                [self addConstraint:top];
+                break;
+            }
+            default:
+                break;
+        }
     }
     return self;
 }
 
 -(void)updateConstraints{
-    if (self.contentViewConstraints) {
-        [self.contentView removeConstraints:self.contentViewConstraints];
-        self.contentViewConstraints = nil;
+    if ([self layoutType] == YNSelfSizingCollectionViewCellLayoutTypeAutoLayout) {
+        if (self.contentViewConstraints) {
+            [self.contentView removeConstraints:self.contentViewConstraints];
+            self.contentViewConstraints = nil;
+        }
+        NSArray *contentViewConstraints = [self generateConstraints];
+        [self.contentView addConstraints:contentViewConstraints];
+        self.contentViewConstraints = contentViewConstraints;
     }
-    NSArray *contentViewConstraints = [self generateConstraints];
-    [self.contentView addConstraints:contentViewConstraints];
-    self.contentViewConstraints = contentViewConstraints;
     [super updateConstraints];
 }
 
-#pragma private
+#pragma public
 
+-(YNSelfSizingCollectionViewCellType)selfSizingType{
+    return YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight;
+}
+
+-(YNSelfSizingCollectionViewCellLayoutType)layoutType{
+    return YNSelfSizingCollectionViewCellLayoutTypeFrame;
+}
+
+-(CGFloat)fixedWidth{
+    return 0;
+}
+
+-(CGFloat)fixedHeight{
+    return 0;
+}
+
+-(UIView*)alignView{
+    return nil;
+}
+
+-(CGFloat)alignOffset{
+    return 0;
+}
+
+#pragma private
 -(NSArray*)generateConstraints{
     NSMutableArray *array = [NSMutableArray array];
     switch ([self selfSizingType]) {
@@ -86,29 +124,6 @@
         }
     }
     return array;
-}
-
-
-#pragma public
-
--(YNSelfSizingCollectionViewCellType)selfSizingType{
-    return YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight;
-}
-
--(CGFloat)fixedWidth{
-    return 0;
-}
-
--(CGFloat)fixedHeight{
-    return 0;
-}
-
--(UIView*)alignView{
-    return nil;
-}
-
--(CGFloat)alignOffset{
-    return 0;
 }
 
 @end
