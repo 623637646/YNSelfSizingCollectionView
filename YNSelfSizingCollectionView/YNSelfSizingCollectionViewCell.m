@@ -71,7 +71,7 @@
                 self.frame = CGRectMake(0, 0, 0, [self fixedHeight]);
                 [self setNeedsLayout];
                 [self layoutIfNeeded];
-                return CGSizeMake([self fixedHeight], [self alignView].frame.size.width + [self alignView].frame.origin.x + [self alignOffset]);
+                return CGSizeMake([self alignView].frame.size.width + [self alignView].frame.origin.x + [self alignOffset], [self fixedHeight]);
                 break;
             }
             default:{
