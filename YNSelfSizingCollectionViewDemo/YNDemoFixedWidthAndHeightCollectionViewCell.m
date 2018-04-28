@@ -42,6 +42,10 @@
     [self setNeedsUpdateConstraints];
 }
 
+-(YNSelfSizingCollectionViewCellLayoutType)layoutType{
+    return YNSelfSizingCollectionViewCellLayoutTypeAutoLayout;
+}
+
 -(YNSelfSizingCollectionViewCellType)selfSizingType{
     return YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight;
 }
