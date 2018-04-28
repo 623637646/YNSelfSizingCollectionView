@@ -18,7 +18,7 @@
     if (self) {
         self.contentView.clipsToBounds = YES;
         switch ([self layoutType]) {
-            case YNSelfSizingCollectionViewCellLayoutTypeFrame:{
+            case YNSelfSizingCollectionViewCellLayoutTypeFrameLayout:{
                 
                 break;
             }
@@ -53,6 +53,37 @@
     [super updateConstraints];
 }
 
+-(CGSize)sizeThatFits:(CGSize)size{
+    if ([self layoutType] == YNSelfSizingCollectionViewCellLayoutTypeFrameLayout) {
+        switch ([self selfSizingType]) {
+            case YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight:{
+                return CGSizeMake([self fixedWidth], [self fixedHeight]);
+                break;
+            }
+            case YNSelfSizingCollectionViewCellTypeFixedWidth:{
+                self.frame = CGRectMake(0, 0, [self fixedWidth], 0);
+                [self setNeedsLayout];
+                [self layoutIfNeeded];
+                return CGSizeMake([self fixedWidth], [self alignView].frame.size.height + [self alignView].frame.origin.y + [self alignOffset]);
+                break;
+            }
+            case YNSelfSizingCollectionViewCellTypeFixedHeight:{
+                self.frame = CGRectMake(0, 0, 0, [self fixedHeight]);
+                [self setNeedsLayout];
+                [self layoutIfNeeded];
+                return CGSizeMake([self fixedHeight], [self alignView].frame.size.width + [self alignView].frame.origin.x + [self alignOffset]);
+                break;
+            }
+            default:{
+                NSAssert(NO, @"type invalid");
+                break;
+            }
+        }
+    }else{
+        return [super sizeThatFits:size];
+    }
+}
+
 #pragma public
 
 -(YNSelfSizingCollectionViewCellType)selfSizingType{
@@ -60,7 +91,7 @@
 }
 
 -(YNSelfSizingCollectionViewCellLayoutType)layoutType{
-    return YNSelfSizingCollectionViewCellLayoutTypeFrame;
+    return YNSelfSizingCollectionViewCellLayoutTypeFrameLayout;
 }
 
 -(CGFloat)fixedWidth{

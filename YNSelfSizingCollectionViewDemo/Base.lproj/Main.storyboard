@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--FrameLayout-->
         <scene sceneID="l9d-Vr-vzw">
             <objects>
-                <viewController id="ciH-qa-M37" sceneMemberID="viewController">
+                <viewController id="ciH-qa-M37" customClass="YNDemoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tUz-w5-CG1"/>
                         <viewControllerLayoutGuide type="bottom" id="B2c-dr-i0t"/>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="VK3-bJ-Gtx"/>
+                    <tabBarItem key="tabBarItem" title="FrameLayout" id="VK3-bJ-Gtx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BK5-UV-7KI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

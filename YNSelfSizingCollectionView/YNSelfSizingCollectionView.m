@@ -158,11 +158,26 @@ CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
     YNSelfSizingCollectionViewCell *cell = [self.templeCells objectForKey:identifier];
     NSAssert(cell, @"cell is nil");
     configuration(cell);
-    [cell.contentView setNeedsUpdateConstraints];
-    [cell.contentView setNeedsLayout];
-    [cell.contentView updateConstraintsIfNeeded];
-    [cell.contentView layoutIfNeeded];
-    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    CGSize size = CGSizeZero;
+    switch ([cell layoutType]) {
+        case YNSelfSizingCollectionViewCellLayoutTypeFrameLayout:{
+            [cell.contentView setNeedsLayout];
+            [cell.contentView layoutIfNeeded];
+            [cell sizeToFit];
+            size = cell.frame.size;
+            break;
+        }
+        case YNSelfSizingCollectionViewCellLayoutTypeAutoLayout:{
+            [cell.contentView setNeedsUpdateConstraints];
+            [cell.contentView setNeedsLayout];
+            [cell.contentView updateConstraintsIfNeeded];
+            [cell.contentView layoutIfNeeded];
+            size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+            break;
+        }
+        default:
+            break;
+    }
     size = CGSizeMake(YNSelfSizingRoundPixelValue(size.width), YNSelfSizingRoundPixelValue(size.height));
     NSValue *sizeValue = [NSValue valueWithCGSize:size];
     [self.sizeCache setObject:sizeValue forKey:indexPath];

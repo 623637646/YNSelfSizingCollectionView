@@ -1,5 +1,5 @@
 //
-//  YNDemoFixedWidthAndHeightCollectionViewCell.h
+//  YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.h
 //  YNSelfSizingCollectionViewDemo
 //
 //  Created by wangya on 2018/3/13.
@@ -8,6 +8,6 @@
 
 #import "YNSelfSizingCollectionViewCell.h"
 
-@interface YNDemoFixedWidthAndHeightCollectionViewCell : YNSelfSizingCollectionViewCell
+@interface YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell : YNSelfSizingCollectionViewCell
 @property (nonatomic, copy) NSString *title;
 @end

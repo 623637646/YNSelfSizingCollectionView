@@ -1,20 +1,19 @@
 //
-//  YNDemoFixedWidthAndHeightCollectionViewCell.m
+//  YNDemoAutoLayoutFixedWidthCollectionViewCell.m
 //  YNSelfSizingCollectionViewDemo
 //
-//  Created by wangya on 2018/3/13.
+//  Created by wangya on 2018/1/26.
 //  Copyright © 2018年 Yanni. All rights reserved.
 //
 
-#import "YNDemoFixedWidthAndHeightCollectionViewCell.h"
+#import "YNDemoAutoLayoutFixedWidthCollectionViewCell.h"
 #import "YNSelfSizingCollectionView.h"
 
-@interface YNDemoFixedWidthAndHeightCollectionViewCell()
+@interface YNDemoAutoLayoutFixedWidthCollectionViewCell()
 @property (nonatomic, weak) UILabel *label;
 @end
 
-@implementation YNDemoFixedWidthAndHeightCollectionViewCell
-
+@implementation YNDemoAutoLayoutFixedWidthCollectionViewCell
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -47,15 +46,18 @@
 }
 
 -(YNSelfSizingCollectionViewCellType)selfSizingType{
-    return YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight;
+    return YNSelfSizingCollectionViewCellTypeFixedWidth;
 }
 
 -(CGFloat)fixedWidth{
     return (int)(self.collectionView.bounds.size.width / 4.f);
 }
 
--(CGFloat)fixedHeight{
-    return self.collectionView.bounds.size.width / 4.f;
+-(UIView*)alignView{
+    return self.label;
 }
 
+-(CGFloat)alignOffset{
+    return 20;
+}
 @end

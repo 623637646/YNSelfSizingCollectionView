@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A04DFD46209456E800556CAF /* YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A04DFD45209456E800556CAF /* YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.m */; };
+		A04DFD49209456F500556CAF /* YNDemoFrameLayoutFixedWidthCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A04DFD48209456F500556CAF /* YNDemoFrameLayoutFixedWidthCollectionViewCell.m */; };
+		A04DFD4C2094570300556CAF /* YNDemoFrameLayoutFixedHeightCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A04DFD4B2094570300556CAF /* YNDemoFrameLayoutFixedHeightCollectionViewCell.m */; };
 		A058B4FF20899403007E1093 /* YNSelfSizingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A058B4FB20899403007E1093 /* YNSelfSizingCollectionView.m */; };
 		A058B50020899403007E1093 /* YNSelfSizingCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A058B4FC20899403007E1093 /* YNSelfSizingCollectionViewCell.h */; };
 		A058B50120899403007E1093 /* YNSelfSizingCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A058B4FD20899403007E1093 /* YNSelfSizingCollectionView.h */; };
@@ -17,11 +20,11 @@
 		A07472AE201AD828001538FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07472AC201AD828001538FA /* LaunchScreen.storyboard */; };
 		A07472B1201AD828001538FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472B0201AD828001538FA /* main.m */; };
 		A07472BA201AD999001538FA /* YNDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472B9201AD999001538FA /* YNDemoViewController.m */; };
-		A07472C2201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472C1201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.m */; };
+		A07472C2201AE402001538FA /* YNDemoAutoLayoutFixedWidthCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07472C1201AE402001538FA /* YNDemoAutoLayoutFixedWidthCollectionViewCell.m */; };
 		A07472C3201AE600001538FA /* YNSelfSizingCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0747290201AD7C2001538FA /* YNSelfSizingCollectionView.framework */; };
 		A07472C4201AE600001538FA /* YNSelfSizingCollectionView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0747290201AD7C2001538FA /* YNSelfSizingCollectionView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A0A631C22057E574006285E2 /* YNDemoFixedWidthAndHeightCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A631C12057E574006285E2 /* YNDemoFixedWidthAndHeightCollectionViewCell.m */; };
-		A0A631C62057E62E006285E2 /* YNDemoFixedHeightCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A631C52057E62E006285E2 /* YNDemoFixedHeightCollectionViewCell.m */; };
+		A0A631C22057E574006285E2 /* YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A631C12057E574006285E2 /* YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.m */; };
+		A0A631C62057E62E006285E2 /* YNDemoAutoLayoutFixedHeightCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A631C52057E62E006285E2 /* YNDemoAutoLayoutFixedHeightCollectionViewCell.m */; };
 		A0A631C92057E99C006285E2 /* YNDemoTitleCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A631C82057E99C006285E2 /* YNDemoTitleCollectionReusableView.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +53,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A04DFD44209456E800556CAF /* YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.h; sourceTree = "<group>"; };
+		A04DFD45209456E800556CAF /* YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.m; sourceTree = "<group>"; };
+		A04DFD47209456F500556CAF /* YNDemoFrameLayoutFixedWidthCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoFrameLayoutFixedWidthCollectionViewCell.h; sourceTree = "<group>"; };
+		A04DFD48209456F500556CAF /* YNDemoFrameLayoutFixedWidthCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoFrameLayoutFixedWidthCollectionViewCell.m; sourceTree = "<group>"; };
+		A04DFD4A2094570300556CAF /* YNDemoFrameLayoutFixedHeightCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoFrameLayoutFixedHeightCollectionViewCell.h; sourceTree = "<group>"; };
+		A04DFD4B2094570300556CAF /* YNDemoFrameLayoutFixedHeightCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoFrameLayoutFixedHeightCollectionViewCell.m; sourceTree = "<group>"; };
 		A058B4FB20899403007E1093 /* YNSelfSizingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNSelfSizingCollectionView.m; sourceTree = "<group>"; };
 		A058B4FC20899403007E1093 /* YNSelfSizingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionViewCell.h; sourceTree = "<group>"; };
 		A058B4FD20899403007E1093 /* YNSelfSizingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNSelfSizingCollectionView.h; sourceTree = "<group>"; };
@@ -66,12 +75,12 @@
 		A07472B0201AD828001538FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A07472B8201AD999001538FA /* YNDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoViewController.h; sourceTree = "<group>"; };
 		A07472B9201AD999001538FA /* YNDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoViewController.m; sourceTree = "<group>"; };
-		A07472C0201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoFixedWidthCollectionViewCell.h; sourceTree = "<group>"; };
-		A07472C1201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoFixedWidthCollectionViewCell.m; sourceTree = "<group>"; };
-		A0A631C02057E574006285E2 /* YNDemoFixedWidthAndHeightCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoFixedWidthAndHeightCollectionViewCell.h; sourceTree = "<group>"; };
-		A0A631C12057E574006285E2 /* YNDemoFixedWidthAndHeightCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoFixedWidthAndHeightCollectionViewCell.m; sourceTree = "<group>"; };
-		A0A631C42057E62E006285E2 /* YNDemoFixedHeightCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoFixedHeightCollectionViewCell.h; sourceTree = "<group>"; };
-		A0A631C52057E62E006285E2 /* YNDemoFixedHeightCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoFixedHeightCollectionViewCell.m; sourceTree = "<group>"; };
+		A07472C0201AE402001538FA /* YNDemoAutoLayoutFixedWidthCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoAutoLayoutFixedWidthCollectionViewCell.h; sourceTree = "<group>"; };
+		A07472C1201AE402001538FA /* YNDemoAutoLayoutFixedWidthCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoAutoLayoutFixedWidthCollectionViewCell.m; sourceTree = "<group>"; };
+		A0A631C02057E574006285E2 /* YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.h; sourceTree = "<group>"; };
+		A0A631C12057E574006285E2 /* YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.m; sourceTree = "<group>"; };
+		A0A631C42057E62E006285E2 /* YNDemoAutoLayoutFixedHeightCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoAutoLayoutFixedHeightCollectionViewCell.h; sourceTree = "<group>"; };
+		A0A631C52057E62E006285E2 /* YNDemoAutoLayoutFixedHeightCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoAutoLayoutFixedHeightCollectionViewCell.m; sourceTree = "<group>"; };
 		A0A631C72057E99C006285E2 /* YNDemoTitleCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoTitleCollectionReusableView.h; sourceTree = "<group>"; };
 		A0A631C82057E99C006285E2 /* YNDemoTitleCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoTitleCollectionReusableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +104,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A04DFD3F209453C700556CAF /* AutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				A0A631C02057E574006285E2 /* YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.h */,
+				A0A631C12057E574006285E2 /* YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.m */,
+				A07472C0201AE402001538FA /* YNDemoAutoLayoutFixedWidthCollectionViewCell.h */,
+				A07472C1201AE402001538FA /* YNDemoAutoLayoutFixedWidthCollectionViewCell.m */,
+				A0A631C42057E62E006285E2 /* YNDemoAutoLayoutFixedHeightCollectionViewCell.h */,
+				A0A631C52057E62E006285E2 /* YNDemoAutoLayoutFixedHeightCollectionViewCell.m */,
+			);
+			path = AutoLayout;
+			sourceTree = "<group>";
+		};
+		A04DFD402094547600556CAF /* Frame */ = {
+			isa = PBXGroup;
+			children = (
+				A04DFD44209456E800556CAF /* YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.h */,
+				A04DFD45209456E800556CAF /* YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.m */,
+				A04DFD47209456F500556CAF /* YNDemoFrameLayoutFixedWidthCollectionViewCell.h */,
+				A04DFD48209456F500556CAF /* YNDemoFrameLayoutFixedWidthCollectionViewCell.m */,
+				A04DFD4A2094570300556CAF /* YNDemoFrameLayoutFixedHeightCollectionViewCell.h */,
+				A04DFD4B2094570300556CAF /* YNDemoFrameLayoutFixedHeightCollectionViewCell.m */,
+			);
+			path = Frame;
+			sourceTree = "<group>";
+		};
 		A0747286201AD7C2001538FA = {
 			isa = PBXGroup;
 			children = (
@@ -128,18 +163,14 @@
 		A07472A0201AD828001538FA /* YNSelfSizingCollectionViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A04DFD402094547600556CAF /* Frame */,
+				A04DFD3F209453C700556CAF /* AutoLayout */,
 				A07472A1201AD828001538FA /* AppDelegate.h */,
 				A07472A2201AD828001538FA /* AppDelegate.m */,
 				A07472B8201AD999001538FA /* YNDemoViewController.h */,
 				A07472B9201AD999001538FA /* YNDemoViewController.m */,
 				A0A631C72057E99C006285E2 /* YNDemoTitleCollectionReusableView.h */,
 				A0A631C82057E99C006285E2 /* YNDemoTitleCollectionReusableView.m */,
-				A0A631C02057E574006285E2 /* YNDemoFixedWidthAndHeightCollectionViewCell.h */,
-				A0A631C12057E574006285E2 /* YNDemoFixedWidthAndHeightCollectionViewCell.m */,
-				A07472C0201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.h */,
-				A07472C1201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.m */,
-				A0A631C42057E62E006285E2 /* YNDemoFixedHeightCollectionViewCell.h */,
-				A0A631C52057E62E006285E2 /* YNDemoFixedHeightCollectionViewCell.m */,
 				A07472A7201AD828001538FA /* Main.storyboard */,
 				A07472AA201AD828001538FA /* Assets.xcassets */,
 				A07472AC201AD828001538FA /* LaunchScreen.storyboard */,
@@ -275,11 +306,14 @@
 			files = (
 				A07472BA201AD999001538FA /* YNDemoViewController.m in Sources */,
 				A07472B1201AD828001538FA /* main.m in Sources */,
+				A04DFD4C2094570300556CAF /* YNDemoFrameLayoutFixedHeightCollectionViewCell.m in Sources */,
 				A07472A3201AD828001538FA /* AppDelegate.m in Sources */,
+				A04DFD46209456E800556CAF /* YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.m in Sources */,
 				A0A631C92057E99C006285E2 /* YNDemoTitleCollectionReusableView.m in Sources */,
-				A07472C2201AE402001538FA /* YNDemoFixedWidthCollectionViewCell.m in Sources */,
-				A0A631C62057E62E006285E2 /* YNDemoFixedHeightCollectionViewCell.m in Sources */,
-				A0A631C22057E574006285E2 /* YNDemoFixedWidthAndHeightCollectionViewCell.m in Sources */,
+				A07472C2201AE402001538FA /* YNDemoAutoLayoutFixedWidthCollectionViewCell.m in Sources */,
+				A0A631C62057E62E006285E2 /* YNDemoAutoLayoutFixedHeightCollectionViewCell.m in Sources */,
+				A0A631C22057E574006285E2 /* YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.m in Sources */,
+				A04DFD49209456F500556CAF /* YNDemoFrameLayoutFixedWidthCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

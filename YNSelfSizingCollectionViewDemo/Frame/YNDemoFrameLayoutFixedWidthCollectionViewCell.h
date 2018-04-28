@@ -1,13 +1,13 @@
 //
-//  YNDemoFixedHeightCollectionViewCell.h
+//  YNDemoFrameLayoutFixedWidthCollectionViewCell.h
 //  YNSelfSizingCollectionViewDemo
 //
-//  Created by wangya on 2018/3/13.
+//  Created by wangya on 2018/4/28.
 //  Copyright © 2018年 Yanni. All rights reserved.
 //
 
 #import "YNSelfSizingCollectionViewCell.h"
 
-@interface YNDemoFixedHeightCollectionViewCell : YNSelfSizingCollectionViewCell
+@interface YNDemoFrameLayoutFixedWidthCollectionViewCell : YNSelfSizingCollectionViewCell
 @property (nonatomic, copy) NSString *title;
 @end

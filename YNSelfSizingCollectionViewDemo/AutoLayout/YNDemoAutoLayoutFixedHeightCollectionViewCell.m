@@ -1,19 +1,19 @@
 //
-//  YNDemoFixedWidthCollectionViewCell.m
+//  YNDemoAutoLayoutFixedHeightCollectionViewCell.m
 //  YNSelfSizingCollectionViewDemo
 //
-//  Created by wangya on 2018/1/26.
+//  Created by wangya on 2018/3/13.
 //  Copyright © 2018年 Yanni. All rights reserved.
 //
 
-#import "YNDemoFixedWidthCollectionViewCell.h"
-#import "YNSelfSizingCollectionView.h"
+#import "YNDemoAutoLayoutFixedHeightCollectionViewCell.h"
 
-@interface YNDemoFixedWidthCollectionViewCell()
+@interface YNDemoAutoLayoutFixedHeightCollectionViewCell()
 @property (nonatomic, weak) UILabel *label;
 @end
 
-@implementation YNDemoFixedWidthCollectionViewCell
+@implementation YNDemoAutoLayoutFixedHeightCollectionViewCell
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -26,7 +26,7 @@
         [self.contentView addConstraints:({
             NSMutableArray<NSLayoutConstraint *> *constraint = [[NSMutableArray<NSLayoutConstraint *> alloc] init];
             [constraint addObject:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:20]];
-            [constraint addObject:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-20]];
+            [constraint addObject:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-20]];
             [constraint addObject:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:20]];
             
             constraint;
@@ -46,11 +46,11 @@
 }
 
 -(YNSelfSizingCollectionViewCellType)selfSizingType{
-    return YNSelfSizingCollectionViewCellTypeFixedWidth;
+    return YNSelfSizingCollectionViewCellTypeFixedHeight;
 }
 
--(CGFloat)fixedWidth{
-    return (int)(self.collectionView.bounds.size.width / 4.f);
+-(CGFloat)fixedHeight{
+    return 100;
 }
 
 -(UIView*)alignView{

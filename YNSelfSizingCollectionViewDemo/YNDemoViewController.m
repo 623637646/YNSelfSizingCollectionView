@@ -8,9 +8,12 @@
 
 #import "YNDemoViewController.h"
 #import "YNSelfSizingCollectionView.h"
-#import "YNDemoFixedWidthCollectionViewCell.h"
-#import "YNDemoFixedWidthAndHeightCollectionViewCell.h"
-#import "YNDemoFixedHeightCollectionViewCell.h"
+#import "YNDemoAutoLayoutFixedWidthCollectionViewCell.h"
+#import "YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.h"
+#import "YNDemoAutoLayoutFixedHeightCollectionViewCell.h"
+#import "YNDemoFrameLayoutFixedWidthCollectionViewCell.h"
+#import "YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.h"
+#import "YNDemoFrameLayoutFixedHeightCollectionViewCell.h"
 #import "YNDemoTitleCollectionReusableView.h"
 
 @interface YNDemoViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -64,12 +67,19 @@
     YNSelfSizingCollectionView *collectionView = [[YNSelfSizingCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [collectionView registerClass:YNDemoTitleCollectionReusableView.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:[YNDemoTitleCollectionReusableView description]];
-    [collectionView registerClass:YNDemoFixedWidthAndHeightCollectionViewCell.class forCellWithReuseIdentifier:[YNDemoFixedWidthAndHeightCollectionViewCell description]];
-    [collectionView registerClass:YNDemoFixedWidthCollectionViewCell.class forCellWithReuseIdentifier:[YNDemoFixedWidthCollectionViewCell description]];
-    [collectionView registerClass:YNDemoFixedHeightCollectionViewCell.class forCellWithReuseIdentifier:[YNDemoFixedHeightCollectionViewCell description]];
+    [collectionView registerClass:YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell.class forCellWithReuseIdentifier:[YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell description]];
+    [collectionView registerClass:YNDemoAutoLayoutFixedWidthCollectionViewCell.class forCellWithReuseIdentifier:[YNDemoAutoLayoutFixedWidthCollectionViewCell description]];
+    [collectionView registerClass:YNDemoAutoLayoutFixedHeightCollectionViewCell.class forCellWithReuseIdentifier:[YNDemoAutoLayoutFixedHeightCollectionViewCell description]];
+    [collectionView registerClass:YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell.class forCellWithReuseIdentifier:[YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell description]];
+    [collectionView registerClass:YNDemoFrameLayoutFixedWidthCollectionViewCell.class forCellWithReuseIdentifier:[YNDemoFrameLayoutFixedWidthCollectionViewCell description]];
+    [collectionView registerClass:YNDemoFrameLayoutFixedHeightCollectionViewCell.class forCellWithReuseIdentifier:[YNDemoFrameLayoutFixedHeightCollectionViewCell description]];
     collectionView.dataSource = self;
     collectionView.delegate = self;
     [self.view addSubview:collectionView];
+}
+
+-(BOOL) isUseFrameCell{
+    return [self.tabBarController.viewControllers indexOfObject:self] == 0;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -84,24 +94,46 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     YNSelfSizingCollectionViewCell *cell = nil;
-    switch (indexPath.section) {
-        case 0:{
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDemoFixedWidthAndHeightCollectionViewCell description] forIndexPath:indexPath];
-            ((YNDemoFixedWidthAndHeightCollectionViewCell*)cell).title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
-            break;
+    if ([self isUseFrameCell]) {
+        switch (indexPath.section) {
+            case 0:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell description] forIndexPath:indexPath];
+                ((YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell*)cell).title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                break;
+            }
+            case 1:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDemoFrameLayoutFixedWidthCollectionViewCell description] forIndexPath:indexPath];
+                ((YNDemoFrameLayoutFixedWidthCollectionViewCell*)cell).title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                break;
+            }
+            case 2:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDemoFrameLayoutFixedHeightCollectionViewCell description] forIndexPath:indexPath];
+                ((YNDemoFrameLayoutFixedHeightCollectionViewCell*)cell).title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                break;
+            }
+            default:
+                break;
         }
-        case 1:{
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDemoFixedWidthCollectionViewCell description] forIndexPath:indexPath];
-            ((YNDemoFixedWidthCollectionViewCell*)cell).title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
-            break;
+    }else{
+        switch (indexPath.section) {
+            case 0:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell description] forIndexPath:indexPath];
+                ((YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell*)cell).title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                break;
+            }
+            case 1:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDemoAutoLayoutFixedWidthCollectionViewCell description] forIndexPath:indexPath];
+                ((YNDemoAutoLayoutFixedWidthCollectionViewCell*)cell).title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                break;
+            }
+            case 2:{
+                cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDemoAutoLayoutFixedHeightCollectionViewCell description] forIndexPath:indexPath];
+                ((YNDemoAutoLayoutFixedHeightCollectionViewCell*)cell).title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                break;
+            }
+            default:
+                break;
         }
-        case 2:{
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YNDemoFixedHeightCollectionViewCell description] forIndexPath:indexPath];
-            ((YNDemoFixedHeightCollectionViewCell*)cell).title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
-            break;
-        }
-        default:
-            break;
     }
     cell.backgroundColor = ({
         CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
@@ -115,27 +147,52 @@
 
 - (CGSize)collectionView:(YNSelfSizingCollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     CGSize size = CGSizeZero;
-    switch (indexPath.section) {
-        case 0:{
-            size = [collectionView sizeForCellWithIdentifier:[YNDemoFixedWidthAndHeightCollectionViewCell description] indexPath:indexPath configuration:^(YNDemoFixedWidthAndHeightCollectionViewCell *cell) {
-                cell.title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
-            }];
-            break;
+    if ([self isUseFrameCell]) {
+        switch (indexPath.section) {
+            case 0:{
+                size = [collectionView sizeForCellWithIdentifier:[YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell description] indexPath:indexPath configuration:^(YNDemoFrameLayoutFixedWidthAndHeightCollectionViewCell *cell) {
+                    cell.title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                }];
+                break;
+            }
+            case 1:{
+                size = [collectionView sizeForCellWithIdentifier:[YNDemoFrameLayoutFixedWidthCollectionViewCell description] indexPath:indexPath configuration:^(YNDemoFrameLayoutFixedWidthCollectionViewCell *cell) {
+                    cell.title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                }];
+                break;
+            }
+            case 2:{
+                size = [collectionView sizeForCellWithIdentifier:[YNDemoFrameLayoutFixedHeightCollectionViewCell description] indexPath:indexPath configuration:^(YNDemoFrameLayoutFixedHeightCollectionViewCell *cell) {
+                    cell.title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                }];
+                break;
+            }
+            default:
+                break;
         }
-        case 1:{
-            size = [collectionView sizeForCellWithIdentifier:[YNDemoFixedWidthCollectionViewCell description] indexPath:indexPath configuration:^(YNDemoFixedWidthCollectionViewCell *cell) {
-                cell.title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
-            }];
-            break;
+    }else{
+        switch (indexPath.section) {
+            case 0:{
+                size = [collectionView sizeForCellWithIdentifier:[YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell description] indexPath:indexPath configuration:^(YNDemoAutoLayoutFixedWidthAndHeightCollectionViewCell *cell) {
+                    cell.title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                }];
+                break;
+            }
+            case 1:{
+                size = [collectionView sizeForCellWithIdentifier:[YNDemoAutoLayoutFixedWidthCollectionViewCell description] indexPath:indexPath configuration:^(YNDemoAutoLayoutFixedWidthCollectionViewCell *cell) {
+                    cell.title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                }];
+                break;
+            }
+            case 2:{
+                size = [collectionView sizeForCellWithIdentifier:[YNDemoAutoLayoutFixedHeightCollectionViewCell description] indexPath:indexPath configuration:^(YNDemoAutoLayoutFixedHeightCollectionViewCell *cell) {
+                    cell.title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
+                }];
+                break;
+            }
+            default:
+                break;
         }
-        case 2:{
-            size = [collectionView sizeForCellWithIdentifier:[YNDemoFixedHeightCollectionViewCell description] indexPath:indexPath configuration:^(YNDemoFixedHeightCollectionViewCell *cell) {
-                cell.title = [[[self.data objectAtIndex:indexPath.section] objectForKey:@"data"] objectAtIndex:indexPath.row];
-            }];
-            break;
-        }
-        default:
-            break;
     }
     return size;
 }

@@ -9,7 +9,7 @@
 
 @class YNSelfSizingCollectionView;
 typedef NS_ENUM(NSUInteger, YNSelfSizingCollectionViewCellLayoutType) {
-    YNSelfSizingCollectionViewCellLayoutTypeFrame,
+    YNSelfSizingCollectionViewCellLayoutTypeFrameLayout,
     YNSelfSizingCollectionViewCellLayoutTypeAutoLayout
 };
 typedef NS_ENUM(NSUInteger, YNSelfSizingCollectionViewCellType) {
