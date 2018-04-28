@@ -22,7 +22,6 @@
         UILabel *label = [[UILabel alloc] init];
         label.numberOfLines = 0;
         label.font = [UIFont systemFontOfSize:30];
-        label.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:label];
         self.label = label;
     }
