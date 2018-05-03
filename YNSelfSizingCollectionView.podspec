@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "YNSelfSizingCollectionView"
-  s.version      = "1.1.0"
+  s.version      = "2.0.0"
   s.summary      = "self sizing UICollectionView"
 
   # This description is used to generate tags and improve search results.
