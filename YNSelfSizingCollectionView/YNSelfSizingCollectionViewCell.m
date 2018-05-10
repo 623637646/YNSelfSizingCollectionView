@@ -20,6 +20,11 @@
         self.contentView.clipsToBounds = YES;
         if ([self.class layoutType] == YNSelfSizingCollectionViewCellLayoutTypeAutoLayout) {
             self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+            NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+            [self addConstraint:left];
+            NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+            [self addConstraint:top];
+
         }
     }
     return self;
