@@ -42,20 +42,20 @@
     [self setNeedsUpdateConstraints];
 }
 
--(YNSelfSizingCollectionViewCellLayoutType)layoutType{
++(YNSelfSizingCollectionViewCellLayoutType)layoutType{
     return YNSelfSizingCollectionViewCellLayoutTypeAutoLayout;
 }
 
--(YNSelfSizingCollectionViewCellType)selfSizingType{
++(YNSelfSizingCollectionViewCellType)selfSizingType{
     return YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight;
 }
 
--(CGFloat)fixedWidth{
-    return (int)(self.collectionView.bounds.size.width / 4.f);
++(CGFloat)fixedWidthWithCollectionView:(UICollectionView*)collectionView{
+    return (int)(collectionView.bounds.size.width / 4.f);
 }
 
--(CGFloat)fixedHeight{
-    return self.collectionView.bounds.size.width / 4.f;
++(CGFloat)fixedHeightWithCollectionView:(UICollectionView*)collectionView{
+    return collectionView.bounds.size.width / 4.f;
 }
 
 @end

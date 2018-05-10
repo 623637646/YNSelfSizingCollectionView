@@ -23,10 +23,10 @@ typedef NS_ENUM(NSUInteger, YNSelfSizingCollectionViewCellType) {
 @property (nonatomic, weak) YNSelfSizingCollectionView *collectionView;
 @property (nonatomic, assign) BOOL isTestCell;
 
--(YNSelfSizingCollectionViewCellLayoutType)layoutType;
--(YNSelfSizingCollectionViewCellType)selfSizingType;
--(CGFloat)fixedWidth;
--(CGFloat)fixedHeight;
++(YNSelfSizingCollectionViewCellLayoutType)layoutType;
++(YNSelfSizingCollectionViewCellType)selfSizingType;
++(CGFloat)fixedWidthWithCollectionView:(UICollectionView*)collectionView;
++(CGFloat)fixedHeightWithCollectionView:(UICollectionView*)collectionView;
 -(UIView*)alignView;
 -(CGFloat)alignOffset;
 

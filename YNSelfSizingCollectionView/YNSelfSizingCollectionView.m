@@ -159,7 +159,7 @@ CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
     NSAssert(cell, @"cell is nil");
     configuration(cell);
     CGSize size = CGSizeZero;
-    switch ([cell layoutType]) {
+    switch ([cell.class layoutType]) {
         case YNSelfSizingCollectionViewCellLayoutTypeFrameLayout:{
             [cell.contentView setNeedsLayout];
             [cell.contentView layoutIfNeeded];

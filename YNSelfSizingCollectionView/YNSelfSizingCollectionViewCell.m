@@ -6,6 +6,7 @@
 //
 
 #import "YNSelfSizingCollectionViewCell.h"
+#import "YNSelfSizingCollectionView.h"
 
 @interface YNSelfSizingCollectionViewCell()
 @property (nonatomic, copy) NSArray *contentViewConstraints;
@@ -17,7 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.contentView.clipsToBounds = YES;
-        if ([self layoutType] == YNSelfSizingCollectionViewCellLayoutTypeAutoLayout) {
+        if ([self.class layoutType] == YNSelfSizingCollectionViewCellLayoutTypeAutoLayout) {
             self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
         }
     }
@@ -25,7 +26,7 @@
 }
 
 -(void)updateConstraints{
-    if ([self layoutType] == YNSelfSizingCollectionViewCellLayoutTypeAutoLayout) {
+    if ([self.class layoutType] == YNSelfSizingCollectionViewCellLayoutTypeAutoLayout) {
         if (self.contentViewConstraints) {
             [self.contentView removeConstraints:self.contentViewConstraints];
             self.contentViewConstraints = nil;
@@ -38,24 +39,24 @@
 }
 
 -(CGSize)sizeThatFits:(CGSize)size{
-    if ([self isTestCell] && [self layoutType] == YNSelfSizingCollectionViewCellLayoutTypeFrameLayout) {
-        switch ([self selfSizingType]) {
+    if ([self isTestCell] && [self.class layoutType] == YNSelfSizingCollectionViewCellLayoutTypeFrameLayout) {
+        switch ([self.class selfSizingType]) {
             case YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight:{
-                return CGSizeMake([self fixedWidth], [self fixedHeight]);
+                return CGSizeMake([self.class fixedWidthWithCollectionView:self.collectionView], [self.class fixedHeightWithCollectionView:self.collectionView]);
                 break;
             }
             case YNSelfSizingCollectionViewCellTypeFixedWidth:{
-                self.frame = CGRectMake(0, 0, [self fixedWidth], 0);
+                self.frame = CGRectMake(0, 0, [self.class fixedWidthWithCollectionView:self.collectionView], 0);
                 [self setNeedsLayout];
                 [self layoutIfNeeded];
-                return CGSizeMake([self fixedWidth], [self alignView].frame.size.height + [self alignView].frame.origin.y + [self alignOffset]);
+                return CGSizeMake([self.class fixedWidthWithCollectionView:self.collectionView], [self alignView].frame.size.height + [self alignView].frame.origin.y + [self alignOffset]);
                 break;
             }
             case YNSelfSizingCollectionViewCellTypeFixedHeight:{
-                self.frame = CGRectMake(0, 0, 0, [self fixedHeight]);
+                self.frame = CGRectMake(0, 0, 0, [self.class fixedHeightWithCollectionView:self.collectionView]);
                 [self setNeedsLayout];
                 [self layoutIfNeeded];
-                return CGSizeMake([self alignView].frame.size.width + [self alignView].frame.origin.x + [self alignOffset], [self fixedHeight]);
+                return CGSizeMake([self alignView].frame.size.width + [self alignView].frame.origin.x + [self alignOffset], [self.class fixedHeightWithCollectionView:self.collectionView]);
                 break;
             }
             default:{
@@ -70,19 +71,19 @@
 
 #pragma public
 
--(YNSelfSizingCollectionViewCellType)selfSizingType{
++(YNSelfSizingCollectionViewCellType)selfSizingType{
     return YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight;
 }
 
--(YNSelfSizingCollectionViewCellLayoutType)layoutType{
++(YNSelfSizingCollectionViewCellLayoutType)layoutType{
     return YNSelfSizingCollectionViewCellLayoutTypeFrameLayout;
 }
 
--(CGFloat)fixedWidth{
++(CGFloat)fixedWidthWithCollectionView:(UICollectionView*)collectionView{
     return 0;
 }
 
--(CGFloat)fixedHeight{
++(CGFloat)fixedHeightWithCollectionView:(UICollectionView*)collectionView{
     return 0;
 }
 
@@ -97,17 +98,17 @@
 #pragma private
 -(NSArray*)generateConstraints{
     NSMutableArray *array = [NSMutableArray array];
-    switch ([self selfSizingType]) {
+    switch ([self.class selfSizingType]) {
         case YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight:{
-            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self fixedWidth]];
+            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self.class fixedWidthWithCollectionView:self.collectionView]];
             [array addObject:width];
-            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self fixedHeight]];
+            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self.class fixedHeightWithCollectionView:self.collectionView]];
             [array addObject:height];
             break;
         }
         case YNSelfSizingCollectionViewCellTypeFixedWidth:{
             // width
-            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self fixedWidth]];
+            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self.class fixedWidthWithCollectionView:self.collectionView]];
             [array addObject:width];
             
             if (![self alignView]) {
@@ -121,7 +122,7 @@
         }
         case YNSelfSizingCollectionViewCellTypeFixedHeight:{
             // height
-            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self fixedHeight]];
+            NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:[self.class fixedHeightWithCollectionView:self.collectionView]];
             [array addObject:height];
             
             if (![self alignView]) {

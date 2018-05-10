@@ -40,15 +40,15 @@
     [self setNeedsLayout];
 }
 
--(YNSelfSizingCollectionViewCellLayoutType)layoutType{
++(YNSelfSizingCollectionViewCellLayoutType)layoutType{
     return YNSelfSizingCollectionViewCellLayoutTypeFrameLayout;
 }
 
--(YNSelfSizingCollectionViewCellType)selfSizingType{
++(YNSelfSizingCollectionViewCellType)selfSizingType{
     return YNSelfSizingCollectionViewCellTypeFixedHeight;
 }
 
--(CGFloat)fixedHeight{
++(CGFloat)fixedHeightWithCollectionView:(UICollectionView*)collectionView{
     return 100;
 }
 

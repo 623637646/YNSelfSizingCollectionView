@@ -41,15 +41,15 @@
     [self setNeedsUpdateConstraints];
 }
 
--(YNSelfSizingCollectionViewCellLayoutType)layoutType{
++(YNSelfSizingCollectionViewCellLayoutType)layoutType{
     return YNSelfSizingCollectionViewCellLayoutTypeAutoLayout;
 }
 
--(YNSelfSizingCollectionViewCellType)selfSizingType{
++(YNSelfSizingCollectionViewCellType)selfSizingType{
     return YNSelfSizingCollectionViewCellTypeFixedHeight;
 }
 
--(CGFloat)fixedHeight{
++(CGFloat)fixedHeightWithCollectionView:(UICollectionView*)collectionView{
     return 100;
 }
 
