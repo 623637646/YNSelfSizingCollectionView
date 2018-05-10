@@ -186,6 +186,7 @@ CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
                 break;
         }
     }
+    size.width = MIN(size.width, self.bounds.size.width);
     size = CGSizeMake(YNSelfSizingRoundPixelValue(size.width), YNSelfSizingRoundPixelValue(size.height));
     NSValue *sizeValue = [NSValue valueWithCGSize:size];
     [self.sizeCache setObject:sizeValue forKey:indexPath];
