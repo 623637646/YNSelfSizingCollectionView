@@ -38,7 +38,7 @@
 }
 
 -(CGSize)sizeThatFits:(CGSize)size{
-    if ([self layoutType] == YNSelfSizingCollectionViewCellLayoutTypeFrameLayout) {
+    if ([self isTestCell] && [self layoutType] == YNSelfSizingCollectionViewCellLayoutTypeFrameLayout) {
         switch ([self selfSizingType]) {
             case YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight:{
                 return CGSizeMake([self fixedWidth], [self fixedHeight]);
