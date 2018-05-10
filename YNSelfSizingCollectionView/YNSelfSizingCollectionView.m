@@ -22,6 +22,7 @@ CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
 @interface YNSelfSizingCollectionView()
 @property (nonatomic, strong) NSMutableDictionary<NSIndexPath*, NSValue*> *sizeCache;
 @property (nonatomic, strong) NSMutableDictionary<NSString*, YNSelfSizingCollectionViewCell*> *templeCells;
+@property (nonatomic, strong) NSMutableDictionary<NSString*, NSValue*> *fixWidthAndHeightCellValues;
 @end
 
 @implementation YNSelfSizingCollectionView
@@ -32,6 +33,7 @@ CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
     if (self) {
         self.sizeCache = [NSMutableDictionary<NSIndexPath*, NSValue*> dictionary];
         self.templeCells = [NSMutableDictionary<NSString*, YNSelfSizingCollectionViewCell*> dictionary];
+        self.fixWidthAndHeightCellValues = [NSMutableDictionary<NSString*, NSValue*> dictionary];
     }
     return self;
 }
@@ -40,18 +42,19 @@ CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
 
 -(void)registerNib:(UINib *)nib forCellWithReuseIdentifier:(NSString *)identifier{
     [super registerNib:nib forCellWithReuseIdentifier:identifier];
-    id cell = [[nib instantiateWithOwner:nil options:nil] lastObject];
-    if (cell && [cell isKindOfClass:YNSelfSizingCollectionViewCell.class]) {
-        ((YNSelfSizingCollectionViewCell*)cell).isTestCell = YES;
-        ((YNSelfSizingCollectionViewCell*)cell).collectionView = self;
-        [self.templeCells setObject:cell forKey:identifier];
-    }
+    // must used registerClass forCellWithReuseIdentifier
+    exit(0);
 }
 
 -(void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier{
+    NSParameterAssert(cellClass && [cellClass isSubclassOfClass:YNSelfSizingCollectionViewCell.class]);
+    NSParameterAssert(identifier.length > 0);
     [super registerClass:cellClass forCellWithReuseIdentifier:identifier];
-    id cell = [[cellClass alloc] initWithFrame:CGRectZero];
-    if (cell && [cell isKindOfClass:YNSelfSizingCollectionViewCell.class]) {
+    if ([cellClass selfSizingType] == YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight) {
+        CGSize size = CGSizeMake([cellClass fixedWidthWithCollectionView:self], [cellClass fixedHeightWithCollectionView:self]);
+        [self.fixWidthAndHeightCellValues setObject:[NSValue valueWithCGSize:size] forKey:identifier];
+    }else{
+        id cell = [[cellClass alloc] initWithFrame:CGRectZero];
         ((YNSelfSizingCollectionViewCell*)cell).isTestCell = YES;
         ((YNSelfSizingCollectionViewCell*)cell).collectionView = self;
         [self.templeCells setObject:cell forKey:identifier];
@@ -59,10 +62,8 @@ CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
 }
 
 - (__kindof UICollectionViewCell *)dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [super dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    if (cell && [cell isKindOfClass:YNSelfSizingCollectionViewCell.class]) {
-        ((YNSelfSizingCollectionViewCell*)cell).collectionView = self;
-    }
+    YNSelfSizingCollectionViewCell *cell = [super dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    ((YNSelfSizingCollectionViewCell*)cell).collectionView = self;
     return cell;
 }
 
@@ -155,28 +156,34 @@ CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
     }
     
     // has no size chche
-    YNSelfSizingCollectionViewCell *cell = [self.templeCells objectForKey:identifier];
-    NSAssert(cell, @"cell is nil");
-    configuration(cell);
     CGSize size = CGSizeZero;
-    switch ([cell.class layoutType]) {
-        case YNSelfSizingCollectionViewCellLayoutTypeFrameLayout:{
-            [cell.contentView setNeedsLayout];
-            [cell.contentView layoutIfNeeded];
-            [cell sizeToFit];
-            size = cell.frame.size;
-            break;
+    if ([[self.fixWidthAndHeightCellValues allKeys] containsObject:identifier]) {
+        NSValue *sizeValue = [self.fixWidthAndHeightCellValues objectForKey:identifier];
+        NSAssert(sizeValue, @"no sizeValue");
+        size = [sizeValue CGSizeValue];
+    }else{
+        YNSelfSizingCollectionViewCell *cell = [self.templeCells objectForKey:identifier];
+        NSAssert(cell, @"cell is nil");
+        configuration(cell);
+        switch ([cell.class layoutType]) {
+            case YNSelfSizingCollectionViewCellLayoutTypeFrameLayout:{
+                [cell.contentView setNeedsLayout];
+                [cell.contentView layoutIfNeeded];
+                [cell sizeToFit];
+                size = cell.frame.size;
+                break;
+            }
+            case YNSelfSizingCollectionViewCellLayoutTypeAutoLayout:{
+                [cell.contentView setNeedsUpdateConstraints];
+                [cell.contentView setNeedsLayout];
+                [cell.contentView updateConstraintsIfNeeded];
+                [cell.contentView layoutIfNeeded];
+                size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+                break;
+            }
+            default:
+                break;
         }
-        case YNSelfSizingCollectionViewCellLayoutTypeAutoLayout:{
-            [cell.contentView setNeedsUpdateConstraints];
-            [cell.contentView setNeedsLayout];
-            [cell.contentView updateConstraintsIfNeeded];
-            [cell.contentView layoutIfNeeded];
-            size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-            break;
-        }
-        default:
-            break;
     }
     size = CGSizeMake(YNSelfSizingRoundPixelValue(size.width), YNSelfSizingRoundPixelValue(size.height));
     NSValue *sizeValue = [NSValue valueWithCGSize:size];
