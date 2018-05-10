@@ -71,12 +71,12 @@
 
 #pragma public
 
-+(YNSelfSizingCollectionViewCellType)selfSizingType{
-    return YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight;
-}
-
 +(YNSelfSizingCollectionViewCellLayoutType)layoutType{
     return YNSelfSizingCollectionViewCellLayoutTypeFrameLayout;
+}
+
++(YNSelfSizingCollectionViewCellType)selfSizingType{
+    return YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight;
 }
 
 +(CGFloat)fixedWidthWithCollectionView:(UICollectionView*)collectionView{
