@@ -47,9 +47,10 @@ CGFloat YNSelfSizingRoundPixelValue(CGFloat value)
 }
 
 -(void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier{
-    NSParameterAssert(cellClass && [cellClass isSubclassOfClass:YNSelfSizingCollectionViewCell.class]);
-    NSParameterAssert(identifier.length > 0);
     [super registerClass:cellClass forCellWithReuseIdentifier:identifier];
+    if (![cellClass isSubclassOfClass:YNSelfSizingCollectionViewCell.class]) {
+        return;
+    }
     if ([cellClass selfSizingType] == YNSelfSizingCollectionViewCellTypeFixedWidthAndHeight) {
         CGSize size = CGSizeMake([cellClass fixedWidthWithCollectionView:self], [cellClass fixedHeightWithCollectionView:self]);
         [self.fixWidthAndHeightCellValues setObject:[NSValue valueWithCGSize:size] forKey:identifier];
